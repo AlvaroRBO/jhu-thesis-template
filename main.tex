@@ -177,11 +177,11 @@ natbib = true
 \thispagestyle{empty}
 \begin{center}
 \vspace*{.25in}
-{\bf\LARGE{ WEAK INFINITY COSMOS }}\\ % change it accordingly, title must be in ALL CAPS!
+{\bf\LARGE{ WORKING TITLE }}\\ % change it accordingly, title must be in ALL CAPS!
 \vspace*{.75in}
 {\bf by} \\*[18pt]
 \vspace*{.2in}
-{\bf Your Name}\\ % change it accordingly!
+{\bf Alvaro Belmonte}\\ % change it accordingly!
 \vspace*{1in}
 {\bf A dissertation submitted to Johns Hopkins University\\
 in conformity with the requirements for the degree of\\
@@ -191,7 +191,7 @@ Doctor of Philosophy }\\
 {\bf June, 2020} \\     % change it accordingly! Put month of submission, not of thesis defense (if different)
 \vspace*{.5in}
 \begin{small}
-{\bf \copyright{ }2020 by Your Name} \\ % change the year if needed!
+{\bf \copyright{ }2026 by Alvaro Belmonte} \\ % change the year if needed!
 {\bf All rights reserved}
 \end{small}
 \end{center}
@@ -204,6 +204,7 @@ Doctor of Philosophy }\\
 \include{abstract/abstract}
 \include{committee/committee}
 \include{acknowledgments/acknowledgments}
+
 
 %\cleardoublepage
 %\newpage 
@@ -237,6 +238,12 @@ Doctor of Philosophy }\\
 \cleardoublepage
 \printbibliography[title={References}]
 \end{refsection}
+
+\begin{refsection}[background/background.bib]
+  \include{Background/chapter1}
+  \cleardoublepage
+  \printbibliography[title={References}]
+  \end{refsection}
 
 %% If using Overleaf, you'll have to upload the resulting tex file & figures
 %% since Overleaf does not support Rnw files right now (April 13, 2016)
