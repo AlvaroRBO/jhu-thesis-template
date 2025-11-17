@@ -44,7 +44,7 @@
 %\usepackage[all]{hypcap}
 \usepackage[hypcap=true]{caption}
 \hypersetup{linktocpage}
-\usepackage{amsmath,amssymb,array}
+\usepackage{amsmath,amssymb,amsthm,array}
 \usepackage{booktabs}
 \usepackage{subfig}
 
@@ -58,6 +58,29 @@
 \usepackage{dcolumn}
 % A math shortcut frequently used by John Muschelli
 \newcommand{\bbeta}{\mbox{\boldmath $\beta$}}
+
+\newtheorem{thm}{Theorem}[chapter]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{ex}[thm]{Example}
+\theoremstyle{remark}
+\newtheorem{rmk}[thm]{Remark}
+
+\makeatletter
+\let\c@equation\c@thm
+\makeatother
+\numberwithin{equation}{chapter}
+
+\newcommand{\op}{{\textup{op}}}
+\newcommand{\icos}{$\infty$-cosmos}
+
+\newcommand{\cat}[1]{\textup{\textsf{#1}}}
+
+\newcommand{\Set}{\mathcal{S}\cat{et}}
+\newcommand{\C}{\mathcal{C}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % DOI from Segmentation
@@ -232,6 +255,10 @@ Doctor of Philosophy }\\
 %% respective directories. You will still need to add your chapters as
 %% TeX files or Rnw files (see rnw_chapter as an example) and please
 %% remember to update the makefile accordingly.
+\begin{refsection}
+\include{Outline/outline}
+\cleardoublepage  
+\end{refsection}
 
 \begin{refsection}[intro_chapter/intro_chapter.bib]
 \include{intro_chapter/intro_chapter}
