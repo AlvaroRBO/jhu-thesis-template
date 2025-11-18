@@ -44,7 +44,7 @@
 %\usepackage[all]{hypcap}
 \usepackage[hypcap=true]{caption}
 \hypersetup{linktocpage}
-\usepackage{amsmath,amssymb,array}
+\usepackage{amsmath,amssymb,amsthm,array}
 \usepackage{booktabs}
 \usepackage{subfig}
 
@@ -58,6 +58,29 @@
 \usepackage{dcolumn}
 % A math shortcut frequently used by John Muschelli
 \newcommand{\bbeta}{\mbox{\boldmath $\beta$}}
+
+\newtheorem{thm}{Theorem}[chapter]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{ex}[thm]{Example}
+\theoremstyle{remark}
+\newtheorem{rmk}[thm]{Remark}
+
+\makeatletter
+\let\c@equation\c@thm
+\makeatother
+\numberwithin{equation}{chapter}
+
+\newcommand{\op}{{\textup{op}}}
+\newcommand{\icos}{$\infty$-cosmos}
+
+\newcommand{\cat}[1]{\textup{\textsf{#1}}}
+
+\newcommand{\Set}{\mathcal{S}\cat{et}}
+\newcommand{\C}{\mathcal{C}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % DOI from Segmentation
@@ -177,11 +200,11 @@ natbib = true
 \thispagestyle{empty}
 \begin{center}
 \vspace*{.25in}
-{\bf\LARGE{ JHU THESIS TEMPLATE TITLE }}\\ % change it accordingly, title must be in ALL CAPS!
+{\bf\LARGE{ WORKING TITLE }}\\ % change it accordingly, title must be in ALL CAPS!
 \vspace*{.75in}
 {\bf by} \\*[18pt]
 \vspace*{.2in}
-{\bf Your Name}\\ % change it accordingly!
+{\bf Alvaro Belmonte}\\ % change it accordingly!
 \vspace*{1in}
 {\bf A dissertation submitted to Johns Hopkins University\\
 in conformity with the requirements for the degree of\\
@@ -191,7 +214,7 @@ Doctor of Philosophy }\\
 {\bf June, 2020} \\     % change it accordingly! Put month of submission, not of thesis defense (if different)
 \vspace*{.5in}
 \begin{small}
-{\bf \copyright{ }2020 by Your Name} \\ % change the year if needed!
+{\bf \copyright{ }2026 by Alvaro Belmonte} \\ % change the year if needed!
 {\bf All rights reserved}
 \end{small}
 \end{center}
@@ -204,6 +227,7 @@ Doctor of Philosophy }\\
 \include{abstract/abstract}
 \include{committee/committee}
 \include{acknowledgments/acknowledgments}
+
 
 %\cleardoublepage
 %\newpage 
@@ -231,12 +255,22 @@ Doctor of Philosophy }\\
 %% respective directories. You will still need to add your chapters as
 %% TeX files or Rnw files (see rnw_chapter as an example) and please
 %% remember to update the makefile accordingly.
+\begin{refsection}
+\include{Outline/outline}
+\cleardoublepage  
+\end{refsection}
 
 \begin{refsection}[intro_chapter/intro_chapter.bib]
 \include{intro_chapter/intro_chapter}
 \cleardoublepage
 \printbibliography[title={References}]
 \end{refsection}
+
+\begin{refsection}[background/background.bib]
+  \include{Background/chapter1}
+  \cleardoublepage
+  \printbibliography[title={References}]
+  \end{refsection}
 
 %% If using Overleaf, you'll have to upload the resulting tex file & figures
 %% since Overleaf does not support Rnw files right now (April 13, 2016)
