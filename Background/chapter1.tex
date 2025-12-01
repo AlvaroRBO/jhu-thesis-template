@@ -1,17 +1,85 @@
 \chapter{Background}
-\label{chap:back}
+\label{chap:Multicat}
+\section{Multicategories}
+\label{sec:multicat}
+{\bf EXPLAIN THE SOURCE OF THIS MATERIAL. ``Multicategories were first defined in ...'' ``Our exposition follows ...''}
 
-
-
-\begin{thm}
-Something Ramdon
-
-\end{thm}
-
+Multicategories are a generalization of categories. In 
+categories, arrows have a single source/domain to a single target/codoamin, in a multicategories the arrows have a finite sequence of sources/inputs to a single target/output. 
 \begin{defn}
-definition now. Here is $\Set$
+    A \emph{multicategory} $\M$ consist of a set $S$ of objects and for each $n\geq 0$ and each sequence $s_1,\ldots, s_n,t$ of objects a set
+    \[\M(s_1,\ldots,s_n;t) \] 
+    of multiarrows/operations, thought of as taking $n$ inputs of objects $s_1,\ldots,s_n$ respectively to the object output $t$. Moreover, there are three kinds of structure maps:
+    \begin{itemize}
+        \item For each object $s$, an identity/unit $1_s\in \M(s;s)$
+        \item For any sequence of objects $s_1,\ldots,s_n,t$ and any $n$-tuple of sequences $d^i_1,\ldots,d^i_{k_i}$ of objects for $i=1,\ldots,n$, a composition function of multiarrows/operations 
+        \[
+        \gamma:\M(s_1,\ldots,s_n;t)\times\prod_{i=1}^{n}\M(d^i_1,\ldots,d^i_{k_i};s_i)\rightarrow\M(d^1_1,\ldots,d^1_{k_1},d^2_1,\ldots,d^n_{k_n};t),
+        \]
+        usually written $\gamma(p,q_1,\ldots,q_n)=p\circ(q_1,\ldots,q_n)$ or even just $p(q_1,\ldots,q_n)$
+    \end{itemize}
+    Furthermore these structure maps have to satisfy a number of axioms, which express that composition is unital and associative. {\bf ADD SPECIFIC CITATION WHERE THE FULL DEFINITION APPEARS.}
 \end{defn}
 
 \begin{rmk}
-    here goes it
+Let $\M$ be a multicategory, $f\in\M(s_1,\ldots,s_n;t)$ and $g\in\M(d_1,\ldots,d_l;s_i)$ for some $1 \leq i \leq n$. It will be convenient to have the following notation:
+$$
+\iof{f}{g} := f(1_{s_1},\ldots,g,\ldots,1_{s_n})
+$$
+Thus, $\iof{f}{g}$ is the composition of $f$ with $g$ in the $i$th variable.
 \end{rmk}
+
+\begin{ex} $\quad$
+\begin{enumerate}[label=(\alph*)]
+     \item You can think of the multiarrows in $\M(s_1,\ldots, s_n;t)$ as operations, taking inputs of types $s_1,\ldots,s_n$ respectively to an output of type $t$. 
+     {\bf FIX A SINGLE SET $X$? and then $n$-ary multiarrows are operations on $X$.}
+    For example, define a multicategory $\M$ whose objects are sets and whose multiarrows are defined by setting $\M(X_1,\ldots, X_n;Y)$ to be the set of functions 
+     \[
+     p:X_1\times \cdots \times X_n\rightarrow Y
+    \]
+    Composition in $\M$ is defined as composition of functions.
+    \item If $\C$ is a symmetric monoidal category and $C$ is a set of objects of $\C$, then one obtains a multicategory with this set of objects by defining $\M(c_1,\ldots,c_m;t)$ to be the set of morphisms $c_1\otimes \dots \otimes c_n \rightarrow t$ in $\C$. We will sometimes write $\C^{\otimes}$ for the multicategory obtained in this way, when $C$ is the set of all objects of $\C$ (granted it is small).
+    \item A (small) category $\C$ can be considered as a multicategory $\C_m$ which only have unary arrows. I.e. the set $\C_m(c_1,\ldots,c_n;c)$ is always empty unless $n=1$.
+\end{enumerate}
+\end{ex}
+
+We can observe that multicategories from a category $\MCat$.
+
+
+\begin{defn}
+For two multicategories $\M$ and $\mathcal{N}$, a \emph{multifunctor} $\phi:\M\rightarrow\mathcal{N}$ consist of:
+\begin{itemize}
+    \item A function $f:O_{\M}\rightarrow O_{\mathcal{N}}$ between the corresponding sets of objects
+    \item For each sequence $s_1,\ldots,s_n,t$ of objects of $\M$, a map 
+    \[
+        \phi_{\lst{s}{n},t}:\M(\lst{s}{n};t)\rightarrow \mathcal{N}(\flst{s}{n}{f};f(t)).
+    \]
+\end{itemize}
+These maps being compatible with compositions and units in the obvious way.
+\end{defn}
+\subsection{Trees}
+\label{sec:trees}
+
+\begin{defn}
+    A \emph{tree} $T$ consist of a finite set $V$ of \emph{vertices}, a nonempty finite set $E$ of \emph{edges}, a distinguished element $r\in E$ called the \emph{root}, together with the following data:
+    \begin{enumerate}[label=(\arabic*)]
+        \item a function $I:E-\{r\}\rightarrow V$, which we think of as assigning to an edge $e$ the vertex $I(e)$ of which is an input.
+        \item A function $O:V\rightarrow E$, assigning to each vertex $v$ its output edge $O(v)$
+    \end{enumerate}
+\end{defn}
+variable 
+{\bf}
+
+
+% \begin{thm}
+% Something Ramdon
+
+% \end{thm}
+
+% \begin{defn}
+% definition now. Here is $\Set$
+% \end{defn}
+
+% \begin{rmk}
+%     here goes it
+% \end{rmk}

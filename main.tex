@@ -59,7 +59,7 @@
 % A math shortcut frequently used by John Muschelli
 \newcommand{\bbeta}{\mbox{\boldmath $\beta$}}
 
-\newtheorem{thm}{Theorem}[chapter]
+\newtheorem{thm}{Theorem}[section]
 \newtheorem{lem}[thm]{Lemma}
 \newtheorem{prop}[thm]{Proposition}
 \newtheorem{cor}[thm]{Corollary}
@@ -72,8 +72,10 @@
 \makeatletter
 \let\c@equation\c@thm
 \makeatother
-\numberwithin{equation}{chapter}
+\numberwithin{equation}{section}
 
+\newcommand{\lst}[2]{#1_1,\ldots,#1_{#2}}
+\newcommand{\flst}[3]{#3(#1_1),\ldots,#3(#1_{#2})}
 \newcommand{\op}{{\textup{op}}}
 \newcommand{\icos}{$\infty$-cosmos}
 
@@ -81,6 +83,12 @@
 
 \newcommand{\Set}{\mathcal{S}\cat{et}}
 \newcommand{\C}{\mathcal{C}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\MCat}{\mathcal{MC}\cat{at}}
+
+\newcommand{\dset}{\cat{d}\mathcal{S}\cat{et}}
+
+\newcommand{\iof}[2]{#1 \circ_i #2}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % DOI from Segmentation
@@ -177,7 +185,7 @@ natbib = true
 }
 
 
-\usepackage{enumerate}
+\usepackage{enumerate,enumitem}
 
 %\tolerance=10000
 
@@ -260,11 +268,11 @@ Doctor of Philosophy }\\
 \cleardoublepage  
 \end{refsection}
 
-\begin{refsection}[intro_chapter/intro_chapter.bib]
-\include{intro_chapter/intro_chapter}
-\cleardoublepage
-\printbibliography[title={References}]
-\end{refsection}
+% \begin{refsection}[intro_chapter/intro_chapter.bib]
+% \include{intro_chapter/intro_chapter}
+% \cleardoublepage
+% \printbibliography[title={References}]
+% \end{refsection}
 
 \begin{refsection}[background/background.bib]
   \include{Background/chapter1}
@@ -274,23 +282,23 @@ Doctor of Philosophy }\\
 
 %% If using Overleaf, you'll have to upload the resulting tex file & figures
 %% since Overleaf does not support Rnw files right now (April 13, 2016)
-\begin{refsection}[rnw_chapter/rnw_chapter.bib]
-\include{rnw_chapter/rnw_chapter}
-\cleardoublepage
-\printbibliography[title={References}]
-\end{refsection}
+% \begin{refsection}[rnw_chapter/rnw_chapter.bib]
+% \include{rnw_chapter/rnw_chapter}
+% \cleardoublepage
+% \printbibliography[title={References}]
+% \end{refsection}
 
-\begin{refsection}[conclusion_chapter/conclusion_chapter.bib]
-\include{conclusion_chapter/conclusion_chapter}
-\cleardoublepage
-\printbibliography[title={References}]
-\end{refsection}
+% \begin{refsection}[conclusion_chapter/conclusion_chapter.bib]
+% \include{conclusion_chapter/conclusion_chapter}
+% \cleardoublepage
+% \printbibliography[title={References}]
+% \end{refsection}
 
 
 % CV PDF file downloaded from the moderncv template available at Overleaf
 % https://www.overleaf.com/latex/templates/modern-cv-and-cover-letter-2015-version/sttkgjcysttn#.Vw6PFRMrL65
-\addcontentsline{toc}{chapter}{Curriculum Vitae} % CV must be in table of contents
-\includepdf[pages={-}, pagecommand={}]{moderncv-2015.pdf} %continue page numbering through CV
+% \addcontentsline{toc}{chapter}{Curriculum Vitae} % CV must be in table of contents
+% \includepdf[pages={-}, pagecommand={}]{moderncv-2015.pdf} %continue page numbering through CV
 
 
 \end{document}

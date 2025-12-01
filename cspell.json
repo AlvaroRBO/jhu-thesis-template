@@ -1,0 +1,15 @@
+{
+    "version": "0.2",
+    "ignorePaths": [],
+    "dictionaryDefinitions": [],
+    "dictionaries": [],
+    "words": [
+        "monoidal",
+        "morphisms",
+        "multiarrows",
+        "multicategories",
+        "multicategory"
+    ],
+    "ignoreWords": [],
+    "import": []
+}
