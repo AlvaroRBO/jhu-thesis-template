@@ -18,7 +18,8 @@ categories, arrows have a single source/domain to a single target/codoamin, in a
         \]
         usually written $\gamma(p,q_1,\ldots,q_n)=p\circ(q_1,\ldots,q_n)$ or even just $p(q_1,\ldots,q_n)$
     \end{itemize}
-    Furthermore these structure maps have to satisfy a number of axioms, which express that composition is unital and associative. {\bf ADD SPECIFIC CITATION WHERE THE FULL DEFINITION APPEARS.}
+    Furthermore these structure maps have to satisfy a number of axioms, which express that composition is unital and associative \citep{HM}
+    % {\bf ADD SPECIFIC CITATION WHERE THE FULL DEFINITION APPEARS.}
 \end{defn}
 
 \begin{rmk}
@@ -29,18 +30,22 @@ $$
 Thus, $\iof{f}{g}$ is the composition of $f$ with $g$ in the $i$th variable.
 \end{rmk}
 
-\begin{ex} $\quad$
-\begin{enumerate}[label=(\alph*)]
-     \item You can think of the multiarrows in $\M(s_1,\ldots, s_n;t)$ as operations, taking inputs of types $s_1,\ldots,s_n$ respectively to an output of type $t$. 
+\begin{ex} 
+    You can think of the multiarrows in $\M(s_1,\ldots, s_n;t)$ as operations, taking inputs of types $s_1,\ldots,s_n$ respectively to an output of type $t$. 
      {\bf FIX A SINGLE SET $X$? and then $n$-ary multiarrows are operations on $X$.}
-    For example, define a multicategory $\M$ whose objects are sets and whose multiarrows are defined by setting $\M(X_1,\ldots, X_n;Y)$ to be the set of functions 
+    For example, for a fixed family of sets $ {X_c}_{c\in C}$, define a multicategory $\M$ whose objects is the set of colors $C$,  and whose multiarrows are defined by  $\M(c_1,\ldots, c_n;c)$ to be the set of functions 
      \[
-     p:X_1\times \cdots \times X_n\rightarrow Y
+     p:X_{c_1}\times \cdots \times X_{c_n}\rightarrow X_c
     \]
     Composition in $\M$ is defined as composition of functions.
-    \item If $\C$ is a symmetric monoidal category and $C$ is a set of objects of $\C$, then one obtains a multicategory with this set of objects by defining $\M(c_1,\ldots,c_m;t)$ to be the set of morphisms $c_1\otimes \dots \otimes c_n \rightarrow t$ in $\C$. We will sometimes write $\C^{\otimes}$ for the multicategory obtained in this way, when $C$ is the set of all objects of $\C$ (granted it is small).
-    \item A (small) category $\C$ can be considered as a multicategory $\C_m$ which only have unary arrows. I.e. the set $\C_m(c_1,\ldots,c_n;c)$ is always empty unless $n=1$.
-\end{enumerate}
+\end{ex}
+
+
+\begin{ex}
+    If $\C$ is a symmetric monoidal category and $C$ is a set of objects of $\C$, then one obtains a multicategory with this set of objects by defining $\M(c_1,\ldots,c_m;t)$ to be the set of morphisms $c_1\otimes \dots \otimes c_n \rightarrow t$ in $\C$. We will sometimes write $\C^{\otimes}$ for the multicategory obtained in this way, when $C$ is the set of all objects of $\C$ (granted it is small).
+\end{ex}
+\begin{ex}
+    A (small) category $\C$ can be considered as a multicategory $\C_m$ which only have unary arrows. I.e. the set $\C_m(c_1,\ldots,c_n;c)$ is always empty unless $n=1$.
 \end{ex}
 
 We can observe that multicategories from a category $\MCat$.
@@ -67,8 +72,60 @@ These maps being compatible with compositions and units in the obvious way.
         \item A function $O:V\rightarrow E$, assigning to each vertex $v$ its output edge $O(v)$
     \end{enumerate}
 \end{defn}
-variable 
-{\bf}
+
+For each edge $e$ other than the root $r$, we obtain a sequence of edges starting at $e$ by repeatedly applying $O\circ I$. We demand that this sequence ends in the root $r$ after finitely many steps, for an arbitrary starting edge.
+The edges in the complement of the image of $O$ are called \emph{leaves} of the tree $T$. The vertices in the complement of the image of $I$ are called \emph{stumps}, or \emph{nullary vertices.} An \emph{outer edge} is an edge tha is either the root or a leaf. An \emph{inner edge} is any other edge of $T$. Such an edge is both an output edge and an input edge for some other vertex.\\
+
+When writing $T$ for a tree, we will usually write $E(T)$ and $V(T)$ for its sets of edges and vertices, repectively.
+
+\begin{ex}
+    The smallest possible tree consiste of a single edge and no vertices; this tree will be denoted by $\mu$
+\end{ex}
+\begin{ex}
+The next smallest tree consist of a single edge and single vertex, pictured as:
+% https://q.uiver.app/#q=WzAsMyxbMCwxLCJcXGJ1bGxldCJdLFswLDJdLFswLDBdLFsyLDEsIiIsMCx7InNob3J0ZW4iOnsic291cmNlIjo1MH0sInN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XV0=
+\[\begin{tikzcd}
+	{} \\
+	\bullet \\
+	{}
+	\arrow[between={0.5}{1}, no head, from=1-1, to=3-1]
+\end{tikzcd}\]
+\end{ex}
+\newpage
+\begin{ex}
+    A bigger and more typical tree $T$ with $E(T)=\{x,y,z,w,v,r\}$ and $V(T)=\{f,g,h,l\}$:\\
+    \begin{center}
+\begin{tikzpicture}[
+  vertex/.style={circle, fill=black, inner sep=1.5pt},
+  edge/.style={draw},
+  lab/.style={font=\small}
+]
+
+% vertices (explicit coordinates)
+\node[vertex, label=above:$f$] (f) at (-.2,0) {};
+\node[vertex, label=right:$g$] (g) at (-.7,-1.4) {};
+\node[vertex, label=left:$l$] (l) at (.6,-3.0) {};
+\node[vertex, label=above:$h$] (h) at (.6,-1.4) {};
+
+% dangling endpoints (no vertices)
+\coordinate (xend) at (-1.3,-.2);
+\coordinate (wend) at (1.9,-1.5);
+\coordinate (rend) at (0.6,-4.6);
+
+% edges
+\draw[edge] (xend) -- node[lab, left, pos = .45] {$x$} (g);
+\draw[edge] (f) -- node[lab, right] {$y$} (g);
+
+\draw[edge] (g) -- node[lab, left] {$v$} (l);
+\draw[edge] (h) -- node[lab, right] {$z$} (l);
+
+\draw[edge] (l) -- node[lab, right ] {$w$} (wend);
+\draw[edge] (l) -- node[lab, left] {$r$} (rend);
+
+\end{tikzpicture}
+\end{center}
+\end{ex}
+
 
 
 % \begin{thm}

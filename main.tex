@@ -49,6 +49,11 @@
 \usepackage{subfig}
 
 %% load any required packages here
+\usepackage{tikz-cd}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usetikzlibrary{calc}
+\usepackage{quiver}
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{tikz}
@@ -178,6 +183,9 @@ backend = bibtex,
 natbib = true
 ]{biblatex}
 
+\addbibresource{biblio.bib}
+
+
 % If you want to exclude some portions from the bibliography
 \AtEveryBibitem{
 \clearfield{note}
@@ -195,6 +203,7 @@ natbib = true
 
 \setcounter{tocdepth}{4}
 \setcounter{secnumdepth}{4}
+
 \begin{document}
 
 \newcommand{\bm}[1]{ \mbox{\boldmath $ #1 $} }
@@ -263,10 +272,10 @@ Doctor of Philosophy }\\
 %% respective directories. You will still need to add your chapters as
 %% TeX files or Rnw files (see rnw_chapter as an example) and please
 %% remember to update the makefile accordingly.
-\begin{refsection}
+
 \include{Outline/outline}
 \cleardoublepage  
-\end{refsection}
+
 
 % \begin{refsection}[intro_chapter/intro_chapter.bib]
 % \include{intro_chapter/intro_chapter}
@@ -274,11 +283,10 @@ Doctor of Philosophy }\\
 % \printbibliography[title={References}]
 % \end{refsection}
 
-\begin{refsection}[background/background.bib]
+
   \include{Background/chapter1}
   \cleardoublepage
-  \printbibliography[title={References}]
-  \end{refsection}
+  
 
 %% If using Overleaf, you'll have to upload the resulting tex file & figures
 %% since Overleaf does not support Rnw files right now (April 13, 2016)
@@ -294,6 +302,9 @@ Doctor of Philosophy }\\
 % \printbibliography[title={References}]
 % \end{refsection}
 
+\cleardoublepage
+\addcontentsline{toc}{chapter}{References}
+\printbibliography
 
 % CV PDF file downloaded from the moderncv template available at Overleaf
 % https://www.overleaf.com/latex/templates/modern-cv-and-cover-letter-2015-version/sttkgjcysttn#.Vw6PFRMrL65
