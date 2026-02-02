@@ -81,12 +81,18 @@ These maps being compatible with compositions and units in the obvious way.
     \end{enumerate}
 \end{defn}
 
-For each edge $e$ other than the root $r$, we obtain a sequence of edges starting at $e$ by repeatedly applying $O\circ I$. We demand that this sequence ends in the root $r$ after finitely many steps, for an arbitrary starting edge. The edges in the complement of the image of $O$ are called \emph{leaves} of the tree $T$. The vertices in the complement of the image of $I$ are called \emph{stumps}, or \emph{nullary vertices.} An \emph{outer edge} is an edge tha is either the root or a leaf. An \emph{inner edge} is any other edge of $T$. Such an edge is both an output edge and an input edge for some other vertex.
-
+For each edge $e$ other than the root $r$, we obtain a sequence of edges starting at $e$ by repeatedly applying $O\circ I$. We demand that this sequence ends in the root $r$ after finitely many steps, for an arbitrary starting edge. The edges in the complement of the image of $O$ are called \emph{leaves} of the tree $T$. The vertices in the complement of the image of $I$ are called \emph{stumps}, or \emph{nullary vertices.} An \emph{outer edge} is an edge tha is either the root or a leaf. An \emph{inner edge} is any other edge of $T$. Such an edge is both an output edge and an input edge for some other vertex. The vertices come in two kinds, \emph{external vertices} which only have one inner edge attached to them, and \emph{internal vertices} 
 When writing $T$ for a tree, we will usually write $E(T)$ and $V(T)$ for its sets of edges and vertices, repectively.
-
-\begin{ex}
+\newpage
+\begin{ex}\label{ex:mu}
     The smallest possible tree consiste of a single edge and no vertices; this tree will be denoted by $\mu$
+    % https://q.uiver.app/#q=WzAsMyxbMCwxLCJcXGJ1bGxldCJdLFswLDJdLFswLDBdLFsyLDEsIiIsMCx7InNob3J0ZW4iOnsic291cmNlIjo1MH0sInN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XV0=
+\[\begin{tikzcd}
+	{} \\
+	 \\
+	{}
+	\arrow[between={0.5}{1}, no head, from=1-1, to=3-1]
+\end{tikzcd}\]
 \end{ex}
 \begin{ex}
 The next smallest tree consist of a single edge and single vertex, pictured as:
@@ -173,7 +179,44 @@ The relations to be satisfied by these generators are the following:
 
 Note that relations (1) and (2) say precisely the condition that for any object $y$ of $N$ there is a multifunction $-\otimes y:M \rightarrow M \bv N$. Similarly, for any object $x$ of $M$ there is a multifunction $x \otimes -:N \rightarrow M \bv N$, this time given by relations (2) and (4). Relation (5) is the most interesting; most often refered to it as the \emph{Boardman-Vogt interchange relation}. The permutation $\sigma_{n,m} \in \Sigma_{nm}$ is the one that makes sense of formula (5), i.e. the element relating the sequences $(\lst{x_1 \otimes y}{m},\dots,\lst{x_n \otimes y}{m})$ and $(\tflst{x}{n}{d_1},\dots,\tflst{x}{n}{d_m})$.
 
+\subsection{Dendroidal Sets}
+\label{sec:dset}
 
+Dendroidal sets are a generalization of simplicial sets that are particularly well suited to study operads and multicategories. Just as simplicial sets are presheaves on the simplex category $\Delta$, dendroidal sets are presheaves on the dendroidal category $\Omega$, which has trees as objects and certain morphisms between them. These trees are the same ones we defined in Section \ref{sec:trees}. We note that removing an external vertex and all the outer edges attached to it yields a new tree. We will refer to this procedura as \emph{pruning}. 
+
+% We will be extensively using the natural partial ordering on the set of edges. We will call two edges $x$ and $y$ \emph{incomparable} if they are not related in this partial orde
+ We will be extensively using the natural partial ordering on the set of edges. This partial order on the edges can be used to define \emph{incoming edges} and \emph{outgoing edges} for any vertex $f$, which we will denote by $in(f)$ and $out(f)$ respectively. The number of incoming edges of a vertex $f$ is called the \emph{valence} of $f$ and we denote it by $|f|$. A vertex of valence zero is a \emph{nullary vertex} or a \emph{stump}.
+ We will remember our first example of a tree, referred to as $\mu$ (Example \ref{ex:mu}). This tree will play a special role in what follows. For now we will just say that is has an unique edge which is both a lead and a root.
+
+ A tree is called \emph{open} if it has no nullary vertices; on the other side, a tree is called \emph{closed} if it has no leaves. As a quick example, the tree $\mu$ is open but not closed, and generally a tree cannot be both open and closed. A tree is called \emph{linear} if all its vertives have valence one. A linear tree with $n+1$ edges running from the leaf 0 to the root $n$ will be denoted by $\left[n\right]$:
+ \begin{center}
+    
+    \begin{tikzpicture}[
+    vertex/.style={circle, fill=black, inner sep=1.5pt},
+    edge/.style={draw},
+    lab/.style={font=\small}
+    ]
+    \node[vertex] (f) at (0,1) {};
+    \node[vertex] (g) at (0,-1.2) {};
+    \node (center) at (0,0) {$\vdots$};
+
+    % dangling endpoints (no vertices)
+    \coordinate (fup) at (0,1.5);
+    \coordinate (gdown) at (0,-1.7);
+    \coordinate (fdown) at (0,.5);
+    \coordinate (gup) at (0,-.7);
+
+    % edges
+    \draw[edge] (fup) -- node[lab, left] {$0$} (f);
+    \draw[edge] (f) -- node[lab, left] {$1$} (fdown);
+
+    \draw[edge] (gup) -- (g);
+    \draw[edge] (g) -- node[lab, left] {$n$} (gdown);
+    \end{tikzpicture}
+
+\end{center}
+
+The reason for this notation is that the linear trees will correspond to the standard simplices in the dendroidal category $\Omega$.
 % \begin{thm}
 % Something Ramdon
 
