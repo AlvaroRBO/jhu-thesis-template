@@ -70,14 +70,41 @@ For two multicategories $\M$ and $\mathcal{N}$, a \emph{multifunctor} $\phi:\M\r
 \end{itemize}
 So that these maps are compatible with compositions and units in the obvious way.
 \end{defn}
+\subsection{The Tensor Product of Multicategories}
+\label{sec:The Tensor Product of Multicategories}
+
+Let $M$ and $N$ be multicategories. Their Boardman-Vogt tensor product $M \bv N$ is a multicategory defined to make sense of what a $M$-algebra in the category of $N$-algebras is and viceversa. We will not talk about the algebras of a multicategories here, but we refer the reader to [look for reference] % citep{?} and \citep{?} %} for more details.
+\begin{defn}
+    The \emph{Boardman-Vogt tensor} $M \bv N$ in terms of generators and relations. The set of objects of this multicategory is the product of the sets of objects of $M$ and $N$; if $x$ and $y$ are objects of $M$ and $N$ respectively, we write $x\otimes y$ for the corresponding object of $M \bv N$. The generating multiarrows of $M \bv N$ are of two types:
+\begin{itemize}
+    \item For each multiarrow $f \in M (\lst{x}{n},x)$ and object $y$ of $N$, a multiarrow \[
+    f \otimes y \in (M\bv N)(\tflst{x}{n}{y};x\otimes y)
+    \]
+    \item For each object $x$ of $M$ and multiarrow $g \in N(\lst{y}{m};y)$, a multiarrow
+    \[
+    x \otimes g \in (M\bv N)(\lst{x\otimes y}{m}; x\otimes y)
+    \]
+\end{itemize}
+The relations to be satisfied by these generators are the following:
+\begin{enumerate}[label = (\arabic*)]
+    \item $(f\otimes y)(\tflst{f}{n}{y}) = f(\lst{f}{n})\otimes y$
+    \item $(x\otimes g)(\lst{x\otimes g}{m})= x \otimes g(\lst{g}{m})$
+    \item $\sigma^*(f \otimes y) = (\sigma^* f)\otimes y$ for $\sigma \in \Sigma_n$
+    \item $\sigma^*(x \otimes g) = x \otimes (\sigma^* g)$ for $\sigma \in \Sigma_m$
+    \item $(f \otimes y)(\tflst{x}{n}{g}) = \sigma^*_{n,m}((x \otimes g)(\lst{f\otimes y}{m}))$
+\end{enumerate}
+\end{defn}
+
+Note that relations (1) and (2) say precisely the condition that for any object $y$ of $N$ there is a multifunction $-\otimes y:M \rightarrow M \bv N$. Similarly, for any object $x$ of $M$ there is a multifunction $x \otimes -:N \rightarrow M \bv N$, this time given by relations (2) and (4). Relation (5) is the most interesting; most often refered to it as the \emph{Boardman-Vogt interchange relation}. The permutation $\sigma_{n,m} \in \Sigma_{nm}$ is the one that makes sense of formula (5), i.e. the element relating the sequences $(\lst{x_1 \otimes y}{m},\dots,\lst{x_n \otimes y}{m})$ and $(\tflst{x}{n}{d_1},\dots,\tflst{x}{n}{d_m})$.
+
 \subsection{Trees}
 \label{sec:trees}
 We will do a quick detour to talk about our main combinatorial object that is gonna help us with studying multicategories, trees. We are mainly interested in finite rooted tree. The main difference with acyclic graphs from graph theory is edges are not required to have two vertices on either end, and we have a natural partial order to the set of edges and vertices. 
 \begin{defn}
     A \emph{tree} $T$ consist of a finite set $V$ of \emph{vertices}, a nonempty finite set $E$ of \emph{edges}, a distinguished element $r\in E$ called the \emph{root}, together with the following data:
     \begin{enumerate}[label= (\arabic*)]
-        \item a function $I:E-\{r\}\rightarrow V$, which we think of as assigning to an edge $e$ the vertex $I(e)$ of which is an input.
-        \item A function $O:V\rightarrow E$, assigning to each vertex $v$ its output edge $O(v)$
+        \item a function $I:E-\{r\}\rightarrow V$, which we think of as assigning to an edge $e$ the vertex $I(e)$ of which is an input. Gramatically, we say "$e$ is an input edge of $f$, iff $I(e)=f$"
+        \item A function $O:V\rightarrow E$, assigning to each vertex $g$ its output edge $O(g)$. Gramatically, we say "$x$ is the output edge of $f$ iff $O(f)=x$"
     \end{enumerate}
 For each edge $e$ other than the root $r$, we obtain a sequence of edges starting at $e$ by repeatedly applying $O\circ I$. We demand that this sequence ends in the root $r$ after finitely many steps, for an arbitrary starting edge.
 \end{defn}
@@ -124,6 +151,7 @@ We can fully define both functions for this small example as:
 With the graphical representation of a tree, we can see that the function $I$ assigns each edge to the vertex right below it. As in:
 \end{ex}
 
+<<<<<<< Updated upstream
  The edges in the complement of the image of $O$ are called \emph{leaves} of the tree $T$. The vertices in the complement of the image of $I$ are called \emph{stumps}, or \emph{nullary vertices.} An \emph{outer edge} is an edge tha is either the root or a leaf. An \emph{inner edge} is any other edge of $T$. Such an edge is both an output edge and an input edge for some other vertex. The vertices come in two kinds, \emph{external vertices} which only have one inner edge attached to them, and \emph{internal vertices} 
 When writing $T$ for a tree, we will usually write $E(T)$ and $V(T)$ for its sets of edges and vertices, repectively.
 \newpage
@@ -150,56 +178,29 @@ The next smallest tree consist of a single edge and single vertex, pictured as:
 
 
 We will always pictures trees with the root at the bottom and the leaves at the top. The valence of a vertex $v$ is the number of input edges it has, i.e.\ the cardinality of the set $I^{-1}(v)$. A vertex of valence $0$ is what we called a \emph{nullary vertex} or a \emph{stump}. The sets $E(T)$ and $V(T)$ both have a natural partial ordering, where $x < y$ for edges $x$ and $y$ (or $f < g$ for vertices $f$ and $g$) if there is a sequence of edges starting at $x$ (resp. $f$) and ending at the root of T, $r$, and passes through $y$ (resp. $g$).
+=======
+We will always pictures trees with the root at the bottom and the leaves at the top. We will be extensively using the natural partial ordering on the set of edges. This partial order on the edges can be used to define \emph{incoming edges} and \emph{outgoing edges} for any vertex $f$, which we will denote by $in(f)$ and $out(f)$, respectively. The valence of a vertex $v$ is the number of input edges it has, i.e.\ the cardinality of the set $I^{-1}(v)$. A vertex of valence $0$ is what we called a \emph{nullary vertex} or a \emph{stump}. The sets $E(T)$ and $V(T)$ both have a natural partial ordering, where $x < y$ for edges $x$ and $y$ (or $f < g$ for vertices $f$ and $g$) if there is a sequence of edges starting at $x$ (resp. $f$) and ending at the root of T, $r$, and passes through $y$ (resp. $g$).
+>>>>>>> Stashed changes
 
 % {\bf I don't if i need this but ill add it for now}
 
 % \begin{defn}
 %     If $T$ is a tree, then a \emph{planar structure} on $T$ is a linear ordering on the set of input edges of every vertex of $T$.
 % \end{defn}
-A tree $T$ defines a multicategory $\Omega(T)$ as follows: 
-\begin{itemize}
-    \item The objects of $\Omega(T)$ are the edges of $T$.
-    \item An operation/multiarrow in $\Omega(T)(e_1,\ldots,e_n;e)$ is a vertex $v$ of $T$ such that the input edges of $v$ are exactly $e_1,\ldots,e_n$ and the output edge of $v$ is $e$. Note that for any sequence of colors $e_1,\dots,e_2,e$ there is at most one operation/multiarrow in $\Omega(T)(e_1,\ldots,e_n;e)$.
-    \item Composition is given by the tree structure in the obvious way. In more detailed, is the operation/multiarrow given by squashing an inner edge and identifying the two vertices to the composition of the two corresponding operations/multiarrows.
-\end{itemize}
-
 % The multicategory $\Omega(T)$ is an example of a free multicategory, in the sense we will make precise in the next section.
 % \label{sec:Free Multicategories}
-\subsection{The Tensor Product of Multicategories}
-\label{sec:The Tensor Product of Multicategories}
 
-Let $M$ and $N$ be multicategories. Their Boardman-Vogt tensor product $M \bv N$ is a multicategory defined to make sense of what a $M$-algebra in the category of $N$-algebras is and viceversa. We will not talk about the algebras of a multicategories here, but we refer the reader to % citep{?} and \citep{?} %} for more details.
-We define $M \bv N$ in terms of generators and relations. The set of objects of this multicategory is the product of the sets of objects of $M$ and $N$; if $x$ and $y$ are objects of $M$ and $N$ respectively, we write $x\otimes y$ for the corresponding object of $M \bv N$. The generating multiarrows of $M \bv N$ are of two types:
-\begin{itemize}
-    \item For each multiarrow $f \in M (\lst{x}{n},x)$ and object $y$ of $N$, a multiarrow \[
-    f \otimes y \in (M\bv N)(\tflst{x}{n}{y};x\otimes y)
-    \]
-    \item For each object $x$ of $M$ and multiarrow $g \in N(\lst{y}{m};y)$, a multiarrow
-    \[
-    x \otimes g \in (M\bv N)(\lst{x\otimes y}{m}; x\otimes y)
-    \]
-\end{itemize}
-The relations to be satisfied by these generators are the following:
-\begin{enumerate}[label = (\arabic*)]
-    \item $(f\otimes y)(\tflst{f}{n}{y}) = f(\lst{f}{n})\otimes y$
-    \item $(x\otimes g)(\lst{x\otimes g}{m})= x \otimes g(\lst{g}{m})$
-    \item $\sigma^*(f \otimes y) = (\sigma^* f)\otimes y$ for $\sigma \in \Sigma_n$
-    \item $\sigma^*(x \otimes g) = x \otimes (\sigma^* g)$ for $\sigma \in \Sigma_m$
-    \item $(f \otimes y)(\tflst{x}{n}{g}) = \sigma^*_{n,m}((x \otimes g)(\lst{f\otimes y}{m}))$
-\end{enumerate}
-
-Note that relations (1) and (2) say precisely the condition that for any object $y$ of $N$ there is a multifunction $-\otimes y:M \rightarrow M \bv N$. Similarly, for any object $x$ of $M$ there is a multifunction $x \otimes -:N \rightarrow M \bv N$, this time given by relations (2) and (4). Relation (5) is the most interesting; most often refered to it as the \emph{Boardman-Vogt interchange relation}. The permutation $\sigma_{n,m} \in \Sigma_{nm}$ is the one that makes sense of formula (5), i.e. the element relating the sequences $(\lst{x_1 \otimes y}{m},\dots,\lst{x_n \otimes y}{m})$ and $(\tflst{x}{n}{d_1},\dots,\tflst{x}{n}{d_m})$.
-
-\subsection{Dendroidal Sets}
-\label{sec:dset}
-
-Dendroidal sets are a generalization of simplicial sets that are particularly well suited to study operads and multicategories. Just as simplicial sets are presheaves on the simplex category $\Delta$, dendroidal sets are presheaves on the dendroidal category $\Omega$, which has trees as objects and certain morphisms between them. These trees are the same ones we defined in Section \ref{sec:trees}. We note that removing an external vertex and all the outer edges attached to it yields a new tree. We will refer to this procedura as \emph{pruning}. 
+We note that removing an external vertex and all the outer edges attached to it yields a new tree. We will refer to this procedura as \emph{pruning}. 
 
 % We will be extensively using the natural partial ordering on the set of edges. We will call two edges $x$ and $y$ \emph{incomparable} if they are not related in this partial orde
- We will be extensively using the natural partial ordering on the set of edges. This partial order on the edges can be used to define \emph{incoming edges} and \emph{outgoing edges} for any vertex $f$, which we will denote by $in(f)$ and $out(f)$ respectively. The number of incoming edges of a vertex $f$ is called the \emph{valence} of $f$ and we denote it by $|f|$. A vertex of valence zero is a \emph{nullary vertex} or a \emph{stump}.
- We will remember our first example of a tree, referred to as $\mu$ (Example \ref{ex:mu}). This tree will play a special role in what follows. For now we will just say that is has an unique edge which is both a lead and a root.
-
- A tree is called \emph{open} if it has no nullary vertices; on the other side, a tree is called \emph{closed} if it has no leaves. As a quick example, the tree $\mu$ is open but not closed, and generally a tree cannot be both open and closed. A tree is called \emph{linear} if all its vertives have valence one. A linear tree with $n+1$ edges running from the leaf 0 to the root $n$ will be denoted by $\left[n\right]$:
+%  We will remember our first example of a tree, referred to as $\mu$ (Example \ref{ex:mu}). This tree will play a special role in what follows. For now we will just say that is has an unique edge which is both a lead and a root.
+\begin{defn}
+ A tree is called \emph{open} if it has no nullary vertices; on the other side, a tree is called \emph{closed} if it has no leaves.   
+\end{defn}
+\begin{defn}
+    A tree is called \emph{linear} if all its vertives have valence one.
+\end{defn}
+  As an example, the tree $\mu$ is open but not closed, and generally a tree cannot be both open and closed.  A linear tree with $n+1$ edges running from the leaf 0 to the root $n$ will be denoted by $\left[n\right]$:
  \begin{center}
     
     \begin{tikzpicture}[
@@ -227,8 +228,72 @@ Dendroidal sets are a generalization of simplicial sets that are particularly we
 
 \end{center}
 
-The reason for this notation is that the linear trees will correspond to the standard simplices in the dendroidal category $\Omega$.
-% \begin{thm}
+The reason for this notation is that the linear trees will correspond to the standard simplices in the tree category $\Omega$. Note that by our convention the tree obtained from $[n]$ by puttting a stump on top will not be refferred to as a linear tree. 
+
+Another family of trees that we will become familiar with are the \emph{corollas}, which are trees with a single vertex. The corolla with $n$ leaves labeled $1,\dots n$ and root $0$ will be denoted by $C_n$:
+\begin{center}    
+    \begin{tikzpicture}[
+        vertex/.style={circle, fill=black, inner sep=1.5pt},
+        edge/.style={draw},
+        lab/.style={font=\small}
+        ]
+        \node[vertex] (c0) at (-5,0) {};
+        \node[vertex] (c1) at (-2.5,0) {};
+        \node[vertex] (c2) at (0,0) {};
+        \node[vertex] (c3) at (2.5,0) {};
+        \node (center) at (5,0) {$\cdots$};
+
+        \coordinate (c0down) at (-5,-1);
+        \coordinate (c1down) at (-2.5,-1);
+        \coordinate (c2down) at (0,-1);
+        \coordinate (c3down) at (2.5,-1);
+
+        \coordinate (c1up) at (-2.5,1);
+
+        \coordinate (c2upl) at (-.4,1);
+        \coordinate (c2upr) at (.4,1);
+
+        \coordinate (c3upl) at (2.1,1);
+        \coordinate (c3up) at (2.5,1);
+        \coordinate (c3upr) at (2.9,1);
+
+        \draw[edge] (c0down) -- node[lab, right, pos=.1] {$\hspace{.5em} C_0$} (c0);
+        \draw[edge] (c1down) -- node[lab, right, pos=.1] {$\hspace{.5em} C_1$} (c1);
+        \draw[edge] (c2down) -- node[lab, right, pos=.1] {$\hspace{.5em} C_2$} (c2);
+        \draw[edge] (c3down) -- node[lab, right, pos=.1] {$\hspace{.5em} C_3$} (c3);
+
+        \draw[edge] (c1up) -- (c1);
+        \draw[edge] (c2upl) -- (c2);
+        \draw[edge] (c2upr) -- (c2);
+        \draw[edge] (c3upl) -- (c3);
+        \draw[edge] (c3up) -- (c3);
+        \draw[edge] (c3upr) -- (c3);
+    \end{tikzpicture}
+\end{center}
+\begin{defn}
+    An \emph{embedding} $\phi:S\rightarrow T$ of trees consists of injective maps $\phi_V:V(S)\rightarrow V(T)$ and $\phi_E:E(S)\rightarrow E(T)$ such that for any vertex $f$ of $S$, the map $\phi_E$ gives a bijection between $in(f)$ and $in(\phi_V(f))$, and $phi_E(O(f))=O(\phi_V(f))$
+\end{defn} 
+A tree $T$ defines a multicategory $\Omega(T)$ as follows: 
+\begin{itemize}
+    \item The objects of $\Omega(T)$ are the edges of $T$.
+    \item An operation/multiarrow in $\Omega(T)(e_1,\ldots,e_n;e)$ is a vertex $v$ of $T$ such that the input edges of $v$ are exactly $e_1,\ldots,e_n$ and the output edge of $v$ is $e$. Note that for any sequence of colors $e_1,\dots,e_2,e$ there is at most one operation/multiarrow in $\Omega(T)(e_1,\ldots,e_n;e)$.
+    \item Composition is given by the tree structure in the obvious way. In more detailed, is the operation/multiarrow given by squashing an inner edge and identifying the two vertices to the composition of the two corresponding operations/multiarrows.
+\end{itemize}
+
+\subsection{Dendroidal Sets}
+\label{sec:dset}
+
+Dendroidal sets are a generalization of simplicial sets that are particularly well suited to study operads and multicategories. Just as simplicial sets are presheaves on the simplex category $\Delta$, dendroidal sets are presheaves on the dendroidal category $\Omega$.
+\begin{defn}
+    The category $\Omega$ consist of:
+    \begin{enumerate}
+        \item Objects: finite rooted trees
+        \item Morphisms: for two trees $S$ and $T$, a morphism from $S$ to $T$ is a multifunctor $\Omega(S)\rightarrow \Omega(T)$ between the corresponding multicategories.
+    \end{enumerate}
+    Another way to say this is that $\Omega$ is the full subcategory of $\MCat$ spanned by the multicategories of the form $\Omega(T)$ for some tree $T$.
+\end{defn}
+ 
+    % \begin{thm}
 % Something Ramdon
 
 % \end{thm}
