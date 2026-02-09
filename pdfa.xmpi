@@ -73,25 +73,15 @@
   </rdf:Description> 
   <rdf:Description rdf:about="" xmlns:xmp="http://ns.adobe.com/xap/1.0/"> 
    <xmp:CreatorTool>LaTeX with hyperref</xmp:CreatorTool> 
-<<<<<<< Updated upstream
-   <xmp:ModifyDate>2026-02-04T13:44:42-05:00</xmp:ModifyDate> 
-   <xmp:CreateDate>2026-02-04T13:44:42-05:00</xmp:CreateDate> 
-   <xmp:MetadataDate>2026-02-04T13:44:42-05:00</xmp:MetadataDate> 
-=======
-   <xmp:ModifyDate>2026-02-09T10:29:46-05:00</xmp:ModifyDate> 
-   <xmp:CreateDate>2026-02-09T10:29:46-05:00</xmp:CreateDate> 
-   <xmp:MetadataDate>2026-02-09T10:29:46-05:00</xmp:MetadataDate> 
->>>>>>> Stashed changes
+   <xmp:ModifyDate>2026-02-09T10:46:41-05:00</xmp:ModifyDate> 
+   <xmp:CreateDate>2026-02-09T10:46:41-05:00</xmp:CreateDate> 
+   <xmp:MetadataDate>2026-02-09T10:46:41-05:00</xmp:MetadataDate> 
   </rdf:Description> 
   <rdf:Description rdf:about="" xmlns:xmpRights = "http://ns.adobe.com/xap/1.0/rights/"> 
   </rdf:Description> 
   <rdf:Description rdf:about="" xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/"> 
    <xmpMM:DocumentID>uuid:DF005B57-2A06-8753-7167-92D8CE935460</xmpMM:DocumentID> 
-<<<<<<< Updated upstream
-   <xmpMM:InstanceID>uuid:8BC4E46F-A67C-6BE1-CFC3-A233AB18B717</xmpMM:InstanceID> 
-=======
-   <xmpMM:InstanceID>uuid:686C6055-7E90-CD6F-B0E4-0F07280DA933</xmpMM:InstanceID> 
->>>>>>> Stashed changes
+   <xmpMM:InstanceID>uuid:A869D8D4-2CD0-394D-F533-226D0EA63E50</xmpMM:InstanceID> 
   </rdf:Description> 
  </rdf:RDF> 
 </x:xmpmeta> 

@@ -103,8 +103,8 @@ We will do a quick detour to talk about our main combinatorial object that is go
 \begin{defn}
     A \emph{tree} $T$ consist of a finite set $V$ of \emph{vertices}, a nonempty finite set $E$ of \emph{edges}, a distinguished element $r\in E$ called the \emph{root}, together with the following data:
     \begin{enumerate}[label= (\arabic*)]
-        \item a function $I:E-\{r\}\rightarrow V$, which we think of as assigning to an edge $e$ the vertex $I(e)$ of which is an input. Gramatically, we say "$e$ is an input edge of $f$, iff $I(e)=f$"
-        \item A function $O:V\rightarrow E$, assigning to each vertex $g$ its output edge $O(g)$. Gramatically, we say "$x$ is the output edge of $f$ iff $O(f)=x$"
+        \item a function $I:E-\{r\}\rightarrow V$, which we think of as assigning to an edge $e$ the vertex $I(e)$ of which is an input. The way to think about this function is that "$I(e)=f$ if and only if $e$ is \emph{an} input edge of $f$"
+        \item A function $O:V\rightarrow E$, assigning to each vertex $g$ its output edge $O(g)$. The way to think about this function is that "$O(f)=x$ if and only if $x$ is \emph{the} output edge of $f$"
     \end{enumerate}
 For each edge $e$ other than the root $r$, we obtain a sequence of edges starting at $e$ by repeatedly applying $O\circ I$. We demand that this sequence ends in the root $r$ after finitely many steps, for an arbitrary starting edge.
 \end{defn}
@@ -151,7 +151,6 @@ We can fully define both functions for this small example as:
 With the graphical representation of a tree, we can see that the function $I$ assigns each edge to the vertex right below it. As in:
 \end{ex}
 
-<<<<<<< Updated upstream
  The edges in the complement of the image of $O$ are called \emph{leaves} of the tree $T$. The vertices in the complement of the image of $I$ are called \emph{stumps}, or \emph{nullary vertices.} An \emph{outer edge} is an edge tha is either the root or a leaf. An \emph{inner edge} is any other edge of $T$. Such an edge is both an output edge and an input edge for some other vertex. The vertices come in two kinds, \emph{external vertices} which only have one inner edge attached to them, and \emph{internal vertices} 
 When writing $T$ for a tree, we will usually write $E(T)$ and $V(T)$ for its sets of edges and vertices, repectively.
 \newpage
@@ -178,9 +177,6 @@ The next smallest tree consist of a single edge and single vertex, pictured as:
 
 
 We will always pictures trees with the root at the bottom and the leaves at the top. The valence of a vertex $v$ is the number of input edges it has, i.e.\ the cardinality of the set $I^{-1}(v)$. A vertex of valence $0$ is what we called a \emph{nullary vertex} or a \emph{stump}. The sets $E(T)$ and $V(T)$ both have a natural partial ordering, where $x < y$ for edges $x$ and $y$ (or $f < g$ for vertices $f$ and $g$) if there is a sequence of edges starting at $x$ (resp. $f$) and ending at the root of T, $r$, and passes through $y$ (resp. $g$).
-=======
-We will always pictures trees with the root at the bottom and the leaves at the top. We will be extensively using the natural partial ordering on the set of edges. This partial order on the edges can be used to define \emph{incoming edges} and \emph{outgoing edges} for any vertex $f$, which we will denote by $in(f)$ and $out(f)$, respectively. The valence of a vertex $v$ is the number of input edges it has, i.e.\ the cardinality of the set $I^{-1}(v)$. A vertex of valence $0$ is what we called a \emph{nullary vertex} or a \emph{stump}. The sets $E(T)$ and $V(T)$ both have a natural partial ordering, where $x < y$ for edges $x$ and $y$ (or $f < g$ for vertices $f$ and $g$) if there is a sequence of edges starting at $x$ (resp. $f$) and ending at the root of T, $r$, and passes through $y$ (resp. $g$).
->>>>>>> Stashed changes
 
 % {\bf I don't if i need this but ill add it for now}
 
