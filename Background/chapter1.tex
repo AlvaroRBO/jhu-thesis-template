@@ -5,18 +5,18 @@
 {\bf EXPLAIN THE SOURCE OF THIS MATERIAL. ``Multicategories were first defined in ...'' ``Our exposition follows ...''}
 yes
 Multicategories are a generalization of categories. In 
-categories, arrows have a single source/domain to a single target/codoamin, in a multicategories the arrows have a finite sequence of sources/inputs to a single target/output. 
+categories, arrows have a single source/domain and a single target/codoamin. In multicategories, the arrows have a finite sequence of sources/inputs and a single target/output. 
 \begin{defn}
     A \emph{multicategory} $\M$ consist of a set $S$ of objects and for each $n\geq 0$ and each sequence $s_1,\ldots, s_n,t$ of objects a set
     \[\M(s_1,\ldots,s_n;t) \] 
-    of multiarrows/operations, thought of as taking $n$ inputs of objects $s_1,\ldots,s_n$ respectively to the object output $t$. Moreover, there are three kinds of structure maps:
+    of multiarrows/operations, thought of as taking $n$ inputs objects $s_1,\ldots,s_n$ respectively to the output object $t$. Moreover, there are three kinds of structure maps:
     \begin{itemize}
         \item For each object $s$, an identity/unit $1_s\in \M(s;s)$
         \item For any sequence of objects $s_1,\ldots,s_n,t$ and any $n$-tuple of sequences $d^i_1,\ldots,d^i_{k_i}$ of objects for $i=1,\ldots,n$, a composition function of multiarrows/operations 
         \[
         \gamma:\M(s_1,\ldots,s_n;t)\times\prod_{i=1}^{n}\M(d^i_1,\ldots,d^i_{k_i};s_i)\rightarrow\M(d^1_1,\ldots,d^1_{k_1},d^2_1,\ldots,d^n_{k_n};t),
         \]
-        usually written $\gamma(p,q_1,\ldots,q_n)=p\circ(q_1,\ldots,q_n)$ or even just $p(q_1,\ldots,q_n)$
+        usually written $p\circ(q_1,\ldots,q_n):=\gamma(p,q_1,\ldots,q_n)$ or even just $p(q_1,\ldots,q_n)$
     \end{itemize}
     Furthermore these structure maps have to satisfy a number of axioms, which express that composition is unital and associative \citep{HM}
     % {\bf ADD SPECIFIC CITATION WHERE THE FULL DEFINITION APPEARS.}
@@ -31,7 +31,7 @@ Thus, $\iof{f}{g}$ is the composition of $f$ with $g$ in the $i$th variable.
 \end{rmk}
 
 \begin{ex}
-    You can think of the multiarrows in $\M(s_1,\ldots, s_n;t)$ as n-ary operations for a fixed set $X$ as follows. Let $M$ be the multicategory with a single object $X$, then the multiarrows in $M(\lst{X}{n};X)$, where all $X_i$ are the same object $X$, is the set of functions 
+    You can think of $n$-ary multiarrows in $\M(s_1,\ldots, s_n;t)$ as n-ary operations. Let $M$ be the multicategory with a single object $X$. Then the $n$-ary multiarrows in $M(X,\dots,X;X)$define to be the set of functions 
     \[
     f:X\times \cdots \times X \rightarrow X 
     \]
@@ -39,8 +39,8 @@ Thus, $\iof{f}{g}$ is the composition of $f$ with $g$ in the $i$th variable.
 \end{ex}
 \begin{ex} 
     We can up the level from the previous example, by fixing a family of sets $ \{X_c\}_{c\in C}$ indexed by a set of objects $C$. Then you can think of the multiarrows in $\M(c_1,\ldots,c_n;c)$ as n-ary operations, taking inputs of types $\lst{c}{n}$ respectively to an output of type $c$.
-     
-    For example, for a fixed family of sets , define a multicategory $\M$ whose objects is the set of colors $C$,  and whose multiarrows are defined by  $\M(c_1,\ldots, c_n;c)$ to be the set of functions 
+
+    For example, for a fixed family of sets $\{X_c\}_{c\in C}$, define a multicategory $\M$ whose objects is the set of colors $C$,  and whose multiarrows are defined by declaring $\M(c_1,\ldots, c_n;c)$ to be the set of functions 
      \[
      p:X_{c_1}\times \cdots \times X_{c_n}\rightarrow X_c
     \]
@@ -50,13 +50,13 @@ Thus, $\iof{f}{g}$ is the composition of $f$ with $g$ in the $i$th variable.
 % {\bf FIX A SINGLE SET $X$? and then $n$-ary multiarrows are operations on $X$.}
 
 \begin{ex}
-    The previous two examples are specific instances for this more general example.If $\C$ is a symmetric monoidal category and $C$ is a set of objects of $\C$, then one obtains a multicategory with this set of objects by defining $\M(c_1,\ldots,c_m;t)$ to be the set of morphisms $c_1\otimes \dots \otimes c_n \rightarrow t$ in $\C$. We will sometimes write $\C^{\otimes}$ for the multicategory obtained in this way, when $C$ is the set of all objects of $\C$ (granted it is small).
+    The previous two examples are specific instances of a more general family of examples example. If $\C$ is a symmetric monoidal category and $C$ is a set of objects of $\C$, then one obtains a multicategory with this set of objects by defining $\M(c_1,\ldots,c_m;t)$ to be the set of morphisms $c_1\otimes \dots \otimes c_n \rightarrow t$ in $\C$. We will sometimes write $\C^{\otimes}$ for the multicategory obtained in this way, when $C$ is the set of all objects of $\C$ (granted it is small).
 \end{ex}
 \begin{ex}
     A (small) category $\C$ can be considered as a multicategory $\C_m$ which only have unary arrows. I.e. the set $\C_m(c_1,\ldots,c_n;c)$ is always empty unless $n=1$.
 \end{ex}
 
-We can observe that multicategories from a category $\MCat$.
+We can observe that multicategories form a category $\MCat$.
 
 
 \begin{defn}
@@ -68,44 +68,22 @@ For two multicategories $\M$ and $\mathcal{N}$, a \emph{multifunctor} $\phi:\M\r
         \phi_{\lst{s}{n},t}:\M(\lst{s}{n};t)\rightarrow \mathcal{N}(\flst{s}{n}{f};f(t)).
     \]
 \end{itemize}
-These maps being compatible with compositions and units in the obvious way.
+So that these maps are compatible with compositions and units in the obvious way.
 \end{defn}
 \subsection{Trees}
 \label{sec:trees}
-
+We will do a quick detour to talk about our main combinatorial object that is gonna help us with studying multicategories, trees. We are mainly interested in finite rooted tree. The main difference with acyclic graphs from graph theory is edges are not required to have two vertices on either end, and we have a natural partial order to the set of edges and vertices. 
 \begin{defn}
     A \emph{tree} $T$ consist of a finite set $V$ of \emph{vertices}, a nonempty finite set $E$ of \emph{edges}, a distinguished element $r\in E$ called the \emph{root}, together with the following data:
     \begin{enumerate}[label= (\arabic*)]
         \item a function $I:E-\{r\}\rightarrow V$, which we think of as assigning to an edge $e$ the vertex $I(e)$ of which is an input.
         \item A function $O:V\rightarrow E$, assigning to each vertex $v$ its output edge $O(v)$
     \end{enumerate}
+For each edge $e$ other than the root $r$, we obtain a sequence of edges starting at $e$ by repeatedly applying $O\circ I$. We demand that this sequence ends in the root $r$ after finitely many steps, for an arbitrary starting edge.
 \end{defn}
 
-For each edge $e$ other than the root $r$, we obtain a sequence of edges starting at $e$ by repeatedly applying $O\circ I$. We demand that this sequence ends in the root $r$ after finitely many steps, for an arbitrary starting edge. The edges in the complement of the image of $O$ are called \emph{leaves} of the tree $T$. The vertices in the complement of the image of $I$ are called \emph{stumps}, or \emph{nullary vertices.} An \emph{outer edge} is an edge tha is either the root or a leaf. An \emph{inner edge} is any other edge of $T$. Such an edge is both an output edge and an input edge for some other vertex. The vertices come in two kinds, \emph{external vertices} which only have one inner edge attached to them, and \emph{internal vertices} 
-When writing $T$ for a tree, we will usually write $E(T)$ and $V(T)$ for its sets of edges and vertices, repectively.
-\newpage
-\begin{ex}\label{ex:mu}
-    The smallest possible tree consiste of a single edge and no vertices; this tree will be denoted by $\mu$
-    % https://q.uiver.app/#q=WzAsMyxbMCwxLCJcXGJ1bGxldCJdLFswLDJdLFswLDBdLFsyLDEsIiIsMCx7InNob3J0ZW4iOnsic291cmNlIjo1MH0sInN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XV0=
-\[\begin{tikzcd}
-	{} \\
-	 \\
-	{}
-	\arrow[between={0.5}{1}, no head, from=1-1, to=3-1]
-\end{tikzcd}\]
-\end{ex}
 \begin{ex}
-The next smallest tree consist of a single edge and single vertex, pictured as:
-% https://q.uiver.app/#q=WzAsMyxbMCwxLCJcXGJ1bGxldCJdLFswLDJdLFswLDBdLFsyLDEsIiIsMCx7InNob3J0ZW4iOnsic291cmNlIjo1MH0sInN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XV0=
-\[\begin{tikzcd}
-	{} \\
-	\bullet \\
-	{}
-	\arrow[between={0.5}{1}, no head, from=1-1, to=3-1]
-\end{tikzcd}\]
-\end{ex}
-\begin{ex}
-    A bigger and more typical tree $T$ with $E(T)=\{x,y,z,w,v,r\}$ and $V(T)=\{f,g,h,l\}$:
+    A typical tree $T$ with $E(T)=\{x,y,z,w,v,r\}$ and $V(T)=\{f,g,h,l\}$ could look like:
     \begin{center}
 \begin{tikzpicture}[
   vertex/.style={circle, fill=black, inner sep=1.5pt},
@@ -136,7 +114,40 @@ The next smallest tree consist of a single edge and single vertex, pictured as:
 
 \end{tikzpicture}
 \end{center}
+We can fully define both functions for this small example as:
+\begin{align*}
+    I(x)=I(y)=g,\ \ I(v)=I(z)=I(w)=w\ \\
+    O(f)=y,\ \ O(g)=v,\ \ O(h)=z,\ \ O(l)=r    
+\end{align*}
+
+
+With the graphical representation of a tree, we can see that the function $I$ assigns each edge to the vertex right below it. As in:
 \end{ex}
+
+ The edges in the complement of the image of $O$ are called \emph{leaves} of the tree $T$. The vertices in the complement of the image of $I$ are called \emph{stumps}, or \emph{nullary vertices.} An \emph{outer edge} is an edge tha is either the root or a leaf. An \emph{inner edge} is any other edge of $T$. Such an edge is both an output edge and an input edge for some other vertex. The vertices come in two kinds, \emph{external vertices} which only have one inner edge attached to them, and \emph{internal vertices} 
+When writing $T$ for a tree, we will usually write $E(T)$ and $V(T)$ for its sets of edges and vertices, repectively.
+\newpage
+\begin{ex}\label{ex:mu}
+    The smallest possible tree consiste of a single edge and no vertices; this tree will be denoted by $\mu$
+    % https://q.uiver.app/#q=WzAsMyxbMCwxLCJcXGJ1bGxldCJdLFswLDJdLFswLDBdLFsyLDEsIiIsMCx7InNob3J0ZW4iOnsic291cmNlIjo1MH0sInN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XV0=
+\[\begin{tikzcd}
+	{} \\
+	 \\
+	{}
+	\arrow[between={0.5}{1}, no head, from=1-1, to=3-1]
+\end{tikzcd}\]
+\end{ex}
+\begin{ex}
+The next smallest tree consist of a single edge and single vertex, pictured as:
+% https://q.uiver.app/#q=WzAsMyxbMCwxLCJcXGJ1bGxldCJdLFswLDJdLFswLDBdLFsyLDEsIiIsMCx7InNob3J0ZW4iOnsic291cmNlIjo1MH0sInN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XV0=
+\[\begin{tikzcd}
+	{} \\
+	\bullet \\
+	{}
+	\arrow[between={0.5}{1}, no head, from=1-1, to=3-1]
+\end{tikzcd}\]
+\end{ex}
+
 
 We will always pictures trees with the root at the bottom and the leaves at the top. The valence of a vertex $v$ is the number of input edges it has, i.e.\ the cardinality of the set $I^{-1}(v)$. A vertex of valence $0$ is what we called a \emph{nullary vertex} or a \emph{stump}. The sets $E(T)$ and $V(T)$ both have a natural partial ordering, where $x < y$ for edges $x$ and $y$ (or $f < g$ for vertices $f$ and $g$) if there is a sequence of edges starting at $x$ (resp. $f$) and ending at the root of T, $r$, and passes through $y$ (resp. $g$).
 
