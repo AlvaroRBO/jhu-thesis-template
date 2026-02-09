@@ -4,11 +4,24 @@
     "dictionaryDefinitions": [],
     "dictionaries": [],
     "words": [
+        "bijective",
+        "codomain",
+        "Dendroidal",
+        "injective",
         "monoidal",
+        "morphism",
         "morphisms",
+        "multiarrow",
         "multiarrows",
+        "multicategorical",
         "multicategories",
-        "multicategory"
+        "multicategory",
+        "multifunctor",
+        "operads",
+        "postcomposing",
+        "precomposing",
+        "presheaves",
+        "simplicial"
     ],
     "ignoreWords": [],
     "import": []
