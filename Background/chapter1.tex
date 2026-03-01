@@ -389,44 +389,44 @@ For a tree $T$ and an inner edge $x$, let $\partial_x T$ denote the face of $T$ 
 \[
 \partial_xT\xrightarrow{\delta_x} T
 \]
-which sends the new vertex obtained by contraction to the subtree of T obtained by grafting the two corollas with vertices $f$ and $g$ along the edge $x$, i.e. the smallest subtree of $T$ containing these vertices. We can see these in terms of their associated operads. In this framework, we see that we send the new vertex in $\partial_eT$ to the composition in $\Omega(T)$ of the operations correspondignly give by $f$ and $g$ along $x$. A morphism of these kind will be referred to as an \emph{inner face}
+which sends the new vertex obtained by contraction to the subtree of T obtained by grafting the two corollas with vertices $f$ and $g$ along the edge $x$, i.e. the smallest subtree of $T$ containing these vertices. We can see these in terms of their associated operads. In this framework, we see that we send the new vertex in $\partial_eT$ to the composition in $\Omega(T)$ of the operations correspondingly given by $f$ and $g$ along $x$. A morphism of these kind will be referred to as an \emph{inner face}
 
 \subsubsection{Degeneracies}
 
 Let $x$ be an edge in a tree $T$. Consider the tree $\sigma_eT$ obtained from $T$ by splitting this edge into two edges $x_1$ and $x_2$ by placing an unary vertex $id_x$ in the middle of $x$. The  there is a morphism \[\sigma_xT\xrightarrow{\sigma_e} T \]
 in $\Omega$ which sends both edges $x_1$ and $x_2$ to $x$ and the new unary vertex $id_x$ to the subtree $\mu \xrightarrow{x} T$ of $T$. In the operadic framework, we see that it sends the new vertex $id_x$ to the identity operation of the color $x$ in $\Omega(T)$. A morphism of this kind is called a \emph{degeneracy}.
  
-As with simplices, we have codendroidal indentities. We won't go over them since we won't be using them in any kind of way. To see a full list and more on them please refer to \cite{MWDS}. Following suit from simplices, we can also prove that any morphism of trees can be factorized into a composition of a degeneracy, followed by an isomorphism and ending with a face map.
+As with simplices, we have codendroidal identities. We won't go over them since we won't be using them in any kind of way. To see a full list and more on them please refer to \cite[\S 3.3.4]{HM}. Following suit from simplices, we can also prove that any morphism of trees can be factorized into a composition of a degeneracy, followed by an isomorphism and ending with a face map.
 
 \subsection{Dendroidal Sets}
 \label{Dendroidal set}
-As no surprise to the reader, the definition of a \emph{dendroidal set} is analogous to the definitio of a simplicial set.
+As no surprise to the reader, the definition of a \emph{dendroidal set} is analogous to the definition of a simplicial set.
 \begin{defn}
     A dendroidal set is a functor 
     \[X\ :\ \Omega^{\op} \xrightarrow{} \Set  \]
-    Natural transformations as morphism between them, makes them fomr the category of dendroidal set, $\dset$
+    Natural transformations as morphism between them, makes them form the category of dendroidal set, $\dset$
 \end{defn}
 
 Expounding out the definition of a dendroidal sets, we can see a dendroidal set is given by a family of sets $X_T$, one for each $T\in \Omega$, together with a map 
 \[\alpha^*\ : \ X_T \rightarrow X_S \]
 for every morphism $\alpha : S \rightarrow t$ in $\Omega$. These maps should be functorial. The elements of $X_T$ are called \emph{dendrices} of $X$ of shape $T$, or simply $T$-dendrices of $X$.
 
-In particular, each set $X_T$ carries a n action of the group $Aut(T )$ and the dendroidal set $X$ is completely determined by the collection of all these $Aut(T)$-sets together with the elementary face and degeneracy operators of the three kinds we saw before, satisfying the \emph{dendroidal identities}. dual to the identities prevoiusly mentioned.
+In particular, each set $X_T$ carries a n action of the group $Aut(T )$ and the dendroidal set $X$ is completely determined by the collection of all these $Aut(T)$-sets together with the elementary face and degeneracy operators of the three kinds we saw before, satisfying the \emph{dendroidal identities}. dual to the identities previously mentioned.
 
 \begin{ex}
-    Any tree $T$ of $\Omega$ gives rise to a representable preshead which we denote by $\Omega[T]$. As in any presheaf catefory this are defined by
+    Any tree $T$ of $\Omega$ gives rise to a representable presheaf which we denote by $\Omega[T]$. As in any presheaf category this are defined by
     \[\Omega[T]_S = \Hom_\Omega(S,T) \]
 \end{ex}
 
 \begin{ex}
-    One can from limits and colimits of diagrams of dendroidal sets by calculating them 'pointwise', as in any presheaf category. For instance, we can from the product $X\times Y $ of dendroidal sets $X$ and $Y $ as 
+    One can from limits and colimits of diagrams of dendroidal sets by calculating them `pointwise', as in any presheaf category. For instance, we can from the product $X\times Y $ of dendroidal sets $X$ and $Y $ as 
     \[(X \times Y )_T = X_T \times Y_T  \]   
 \end{ex}
 
 \begin{ex}
-    In particular, each face $\delta_x : \partial_x T \rightarrow   T   $, where $x$ is an inner edge or outer vertec, defines a monomorphism of dendroidal sets
+    In particular, each face $\delta_x : \partial_x T \rightarrow   T   $, where $x$ is an inner edge or outer vertex, defines a monomorphism of dendroidal sets
     \[\Omega[\partial_x T] \rightarrow \Omega[T ] \].
-    We will write $\partial_c\Omega[T]\subseteq\Omega[T]$ for the image of this morphims and call it the \emph{face of $T$ opposite $c$}. The union of all these (inner and outer faces) defines the \emph{boundary} $\partial\Omega[T]$ of $\Omega[T]$. Note that these faces and the boundary can be explicitly described as follows:
+    We will write $\partial_c\Omega[T]\subseteq\Omega[T]$ for the image of this morphism and call it the \emph{face of $T$ opposite $c$}. The union of all these (inner and outer faces) defines the \emph{boundary} $\partial\Omega[T]$ of $\Omega[T]$. Note that these faces and the boundary can be explicitly described as follows:
     \[
         \begin{aligned}
             (\partial_c\Omega[T])_S &= \{\alpha:S\rightarrow T\ |\ \text{the edge } c \text{ is not contained in the image of } \alpha\},\\
@@ -438,13 +438,13 @@ In particular, each set $X_T$ carries a n action of the group $Aut(T )$ and the 
 \end{ex}
 
 \begin{ex}
-    The category $\Omega$ has been definned as a full subcategory of the categoty in $\Set$. Thus any such operad $\boldsymbol{M}$ denies a dendroidal set $\textup{N}\boldsymbol{M}$, its \emph{dendroidal nerve}, by 
+    The category $\Omega$ has been defined as a full subcategory of the category in $\Set$. Thus any such operad $\boldsymbol{M}$ defines a dendroidal set $\textup{N}\boldsymbol{M}$, its \emph{dendroidal nerve}, by 
     \[\textup{N}\boldsymbol{M}_T = \boldsymbol{Op}(\Omega(T), \boldsymbol{M}). \]
-    Even though this is an standard contruction in homotopical category theory \textbf{Ask Emily on how to say this correctly}, let us take a closer look at the dendroidal set given by the operad. For the tree $\mu$, the set $\textup{N}\boldsymbol{M}_\mu$ is the set of colors of $\boldsymbol{M}$.For the n-corolla $C_n$ and a sequence of colors $(\lst{c}{n};c)$ a sequence of colors of $\boldsymbol{M}$, there is a pulback square 
+    Even though this is an standard construction in homotopical category theory, let us take a closer look at the dendroidal set given by the operad. For the tree $\mu$, the set $\textup{N}\boldsymbol{M}_\mu$ is the set of colors of $\boldsymbol{M}$.For the n-corolla $C_n$ and a sequence of colors $(\lst{c}{n};c)$ a sequence of colors of $\boldsymbol{M}$, there is a pullback square 
     \textbf{PUT PULLBACK SQUARE}
-    Here the right vertical map has as its $i^{th}$ component the map $i^* : \bnerv{M}_{C_n} \rightarrow \bnerv{M}_\mu$, induced by the edge inclusion $i : \mu \rightarrow C_n$, while $\boldsymbol{c}$ denotes the sequence $(\lst{c}{n};c)$. More generally, for a tree $T$ a dendrec in $\bnerv{M}_T$ can be pictured as follows. It consist of an assigments $x$ of colors of $\boldsymbol{M}$ to the edges of $T$ and a equivalence class of pairs $(p,f)$, where $p $ is a planar structure on $T $ and $f $ assings an operation $f(v)\in\boldsymbol{M}(\flst{e}{n}{c};c(e))$ to each vertex $v\in T$, where $e $ denotes the output edge of $v $ and $\lst{e }{n }$ enumerates the input edges of $v $ in the order provided by the planar structure $p $. Two such pairs $(p,f)$ and $(q,g)$ are equivalent if for each vertex $v$, the permutation $\sigma$ relating the planar structure $p $ and $q $ satisfies $f(v)=\sigma^* g(v)$.
+    Here the right vertical map has as its $i^{th}$ component the map $i^* : \bnerv{M}_{C_n} \rightarrow \bnerv{M}_\mu$, induced by the edge inclusion $i : \mu \rightarrow C_n$, while $\boldsymbol{c}$ denotes the sequence $(\lst{c}{n};c)$. More generally, for a tree $T$ a dendrex in $\bnerv{M}_T$ can be pictured as follows. It consist of an assignments $x$ of colors of $\boldsymbol{M}$ to the edges of $T$ and a equivalence class of pairs $(p,f)$, where $p $ is a planar structure on $T $ and $f $ assigns an operation $f(v)\in\boldsymbol{M}(\flst{e}{n}{c};c(e))$ to each vertex $v\in T$, where $e $ denotes the output edge of $v $ and $\lst{e }{n }$ enumerates the input edges of $v $ in the order provided by the planar structure $p $. Two such pairs $(p,f)$ and $(q,g)$ are equivalent if for each vertex $v$, the permutation $\sigma$ relating the planar structure $p $ and $q $ satisfies $f(v)=\sigma^* g(v)$.
 
-    A little more informally, a dendrex in $\bnerv{M}_T$ is an assignment of colors of $\boldsymbol{M}$ to the edges of $T  $ and a compatible assignment of an operation in $\boldsymbol{M}$ to each vertex of $T$. As explained aboce, this is only a precise statement if one has a planar structure on $T$ in minds.
+    A little more informally, a dendrex in $\bnerv{M}_T$ is an assignment of colors of $\boldsymbol{M}$ to the edges of $T  $ and a compatible assignment of an operation in $\boldsymbol{M}$ to each vertex of $T$. As explained above, this is only a precise statement if one has a planar structure on $T$ in minds.
 \end{ex}
 
 \begin{ex}
