@@ -63,6 +63,7 @@
 \usepackage{dcolumn}
 % A math shortcut frequently used by John Muschelli
 \newcommand{\bbeta}{\mbox{\boldmath $\beta$}}
+\newcommand{\bD}[1]{\mbox{\boldmath \Delta}}
 
 \newtheorem{thm}{Theorem}[section]
 \newtheorem{lem}[thm]{Lemma}
@@ -86,15 +87,20 @@
 \newcommand{\op}{{\textup{op}}}
 \newcommand{\Hom}{\textup{Hom}}
 \newcommand{\icos}{$\infty$-cosmos}
+\newcommand{\Aut}{\textup{Aut}}
 
 \newcommand{\cat}[1]{\textup{\textsf{#1}}}
 
 \newcommand{\Set}{\mathcal{S}\cat{et}}
 \newcommand{\C}{\mathcal{C}}
 \newcommand{\M}{\mathcal{M}}
+
+\newcommand{\theCat}{\mathcal{C}\cat{at}}
 \newcommand{\MCat}{\mathcal{MC}\cat{at}}
+\newcommand{\Nrv}[1]{\textup{N}\boldsymbol{#1}}
 
 \newcommand{\dset}{\cat{d}\mathcal{S}\cat{et}}
+\newcommand{\sset}{\cat{s}\mathcal{S}\cat{et}}
 \newcommand{\simp}{\boldsymbol{\Delta}}
 \newcommand{\dend}{\boldsymbol{\Omega}}
 
@@ -122,6 +128,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % StartKNITR STUFF -- added by John Muschelli
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 \usepackage{color}
 %% maxwidth is the original width if it is less than linewidth
 %% otherwise use linewidth (to make sure the graphics do not exceed the margin)
@@ -133,7 +141,7 @@
     \Gin@nat@width
   \fi
 }
-\makeatother
+
 
 \definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
 \newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
