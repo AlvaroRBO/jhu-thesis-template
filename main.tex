@@ -61,7 +61,12 @@
 \usetikzlibrary{positioning}
 \usetikzlibrary{shapes,arrows}
 \usepackage{dcolumn}
+%\usepackage{cleveref}
 % A math shortcut frequently used by John Muschelli
+\tikzset{
+    hollow/.style={circle, draw, fill=white, inner sep=0pt, minimum size=2mm}
+}
+
 \newcommand{\bbeta}{\mbox{\boldmath $\beta$}}
 \newcommand{\bD}[1]{\mbox{\boldmath \Delta}}
 
@@ -74,11 +79,13 @@
 \newtheorem{ex}[thm]{Example}
 \theoremstyle{remark}
 \newtheorem{rmk}[thm]{Remark}
+%\crefname{rmk}{Remark}{Remarks}
 
 \makeatletter
 \let\c@equation\c@thm
 \makeatother
 \numberwithin{equation}{section}
+
 
 \newcommand{\lst}[2]{#1_1,\ldots,#1_{#2}}
 \newcommand{\flst}[3]{#3(#1_1),\ldots,#3(#1_{#2})}
@@ -86,8 +93,12 @@
 
 \newcommand{\op}{{\textup{op}}}
 \newcommand{\Hom}{\textup{Hom}}
+\newcommand{\dHom}{\textup{\textbf{Hom}}}
+\newcommand{\dhom}{\textup{\textbf{hom}}}
 \newcommand{\icos}{$\infty$-cosmos}
 \newcommand{\Aut}{\textup{Aut}}
+\newcommand{\freeOp}[1]{\Omega(#1)}
+\newcommand{\drep}[1]{\Omega[#1]}
 
 \newcommand{\cat}[1]{\textup{\textsf{#1}}}
 
