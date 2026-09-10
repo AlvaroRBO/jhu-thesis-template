@@ -908,16 +908,16 @@ We will use extensively this object and the underlying simplicial set of these h
 \[\begin{tikzcd}[ampersand replacement=\&,sep=large]
 	{a_1} \&\& { b_1} \\
 	\\
-	{a_2} \&\& { b_2}
+	{a_2}\ar[uurr, phantom, "="{pos=.2, sloped},"=" sloped,"=" {pos=.8, sloped}] \&\& { b_2}
 	\arrow[from=1-1, to=1-3]
 	\arrow[from=1-1, to=3-1]
 	\arrow[""{name=0, anchor=center, inner sep=0}, shift left, curve={height=12pt}, from=1-1, to=3-3]
 	\arrow[""{name=1, anchor=center, inner sep=0}, curve={height=-12pt}, from=1-1, to=3-3]
 	\arrow[from=1-3, to=3-3]
 	\arrow[from=3-1, to=3-3]
-	\arrow[between={0.3}{0.7}, equals, from=0, to=1]
-	\arrow[between={0.4}{0.6}, equals, from=1-3, to=1]
-	\arrow[between={0.4}{0.6}, equals, from=3-1, to=0]
+	% \arrow[between={0.3}{0.7}, equals, from=0, to=1]
+	% \arrow[between={0.4}{0.6}, equals, from=1-3, to=1]
+	% \arrow[between={0.4}{0.6}, equals, from=3-1, to=0]
 \end{tikzcd}\]
     Which is precisely what we were expecting to get from the fact that $i_![1]\otimes i_![1]$ is isomorphic to $i_!([1]\times [1])$.
 \end{ex}
@@ -1081,19 +1081,19 @@ We will use extensively this object and the underlying simplicial set of these h
     
         \end{tikzpicture}
     \end{center} 
-    One way to think. Given the relations in the Boardman-Vogt tensor product, we can see that there will be some subtrees that appear in more than one shuffle tree, but they will all be identified with each other. 
+    Here is one one intuition for shuffle trees, we can see we can get tree B from A by \emph{shuffling up} the white vertex by its input edges. We can see that the representation of an operation in $\freeOp{S}\bv \freeOp{T}$ as a subtree of $A,\ B\ \text{ or } C$ might be not unique, but given the Boardman-Vogt Interchange relation these representations will all be identified with each other. 
     What this all means for the dendroidal set given by taking the nerve is the following. The dendroidal set is given by the union of the representables given by the shuffle trees, glued together by the Boardman-Vogt interchange relation. In particular, we  will have the following diagram in the category of $\Omega:$
     % https://q.uiver.app/#q=WzAsMTAsWzAsMSwiQ19BIl0sWzAsNCwiQ19CIl0sWzAsNywiQ19DIl0sWzIsMCwiXFxwYXJ0aWFsX3tiXzB9XFxwYXJ0aWFsX3tjXzB9QSJdLFsyLDMsIlxccGFydGlhbF97YV8xfVxccGFydGlhbF97YV8yfUIiXSxbMiw1LCJcXHBhcnRpYWxfe2JfMn1cXHBhcnRpYWxfe2NfMn1CIl0sWzIsOCwiXFxwYXJ0aWFsX3thXzN9XFxwYXJ0aWFsX3thXzR9QyJdLFs0LDcsIkMiXSxbNCw0LCJCIl0sWzQsMSwiQSJdLFsxLDIsIlxcY29uZyJdLFswLDEsIlxcY29uZyJdLFs1LDYsIlxcY29uZyJdLFs2LDddLFswLDNdLFsxLDRdLFsxLDVdLFsyLDZdLFs1LDhdLFs0LDhdLFszLDldLFszLDQsIlxcY29uZyIsMl1d
 \[\begin{tikzcd}
-	&& {\partial_{b_0}\partial_{c_0}A} && \\
+	&& {\partial_{a_5}\partial_{b_5}A} && \\
 	{C_A} &&&& A \\
 	\\
-	&& {\partial_{a_{_1}}\partial_{a_2}B} \\
+	&& {\partial_{c_3}\partial_{c_4}B} \\
 	{C_B} &&&& B \\
-	&& {\partial_{b_2}\partial_{c_2}B} \\
+	&& {\partial_{a_4}\partial_{b_4}B} \\
 	\\
 	{C_C} &&&& C \\
-	&& {\partial_{a_3}\partial_{a_4}C}
+	&& {\partial_{c_1}\partial_{c_2}C}
 	\arrow[from=1-3, to=2-5]
 	\arrow["\cong"', from=1-3, to=4-3]
 	\arrow[from=2-1, to=1-3]
@@ -1107,7 +1107,10 @@ We will use extensively this object and the underlying simplicial set of these h
 	\arrow[from=8-1, to=9-3]
 	\arrow[from=9-3, to=8-5]
 \end{tikzcd}\]
-The dendroidal set $\drep{S}\otimes \drep{T}$ is the colimit of this diagram, viewed as a diagram of representables.
+
+In this diagram, $C_A:=\partial_{b_4}\partial_{a_4}\partial_{b_5}\partial_{a_5}A$, $C_B$, and $C_C$ are the corollas given by contracting all the inner edges of $A$, $B$, and $C$ respectively. All of these corollas are identified with each other by the Boardman-Vogt interchange relation, and thus they are isomorphic. For the objects in the middle, we can observe that $A$ and $B$ hace a common face given by contracting the edges $a_5,b_5$ for $A$ and $c_3,c_4$ for $B$. Since the corollas are faces of these two objects, they have a map from the corollas to this intermidiate faces. The bottom part of the diagram is described similarly.
+
+Then, we can compute the dendroidal set $\drep{S}\otimes \drep{T}$ by the colimit of this diagram, viewed as a diagram of representables.
 
 \end{ex}
 
@@ -1131,7 +1134,7 @@ More generally we can define the notion of normal monomorphisms
     Every representable dendroidal sets are normal.
 \end{lem} 
     \begin{proof}
-    Assume that $f:S\rightarrow T$ is a morphism of trees, and $\alpha\in\Aut (S)$ such that $f\alpha=f$. You can factor $f$ as $\delta\beta\sigma$, where $\sigma$ is a degeneracy, $\beta$ is an isomorphism, and $\delta$ is a face map, as mentioned you can do in Remark \ref{factorfid}. Since $\delta\beta$ is a monomorphism, we must have that $\sigma\alpha=\alpha$. Since $\sigma$ is a degeneracy, it means is an epimorphim, which implies that $\alpha$ must be the identity.    
+    Assume that $f:S\rightarrow T$ is a morphism of trees, and $\alpha\in\Aut (S)$ such that $f\alpha=f$. You can factor $f$ as $\delta\beta\sigma$, where $\sigma$ is a degeneracy, $\beta$ is an isomorphism, and $\delta$ is a face map, as mentioned in Remark \ref{factorfid}. Since $\delta\beta$ is a monomorphism, we must have that $\sigma\alpha=\sigma$. Since $\sigma$ is a degeneracy, $\sigma$ is an epimorphim, which implies that $\alpha$ must be the identity.    
     \end{proof}
     
 
@@ -1141,10 +1144,13 @@ More generally we can define the notion of normal monomorphisms
     for all $n$-ary operations into $x$. Then the dendroidal nerve $\Nrv{}P$ is a normal dendroidal set.
 \end{lem}
 \begin{proof}
-     To see this, note that by assumption $\Aut (C_n)$ acts freely on $\Nrv{}P_{C_n}$ for each $n\geq 0$. Now we will proceed by induction on the size of the trees. Given a tree $T$, $\alpha\in\Aut (T)$ such that $\alpha^*\xi =\xi$ for $\xi\in \Nrv{}P_T$. If we denote the root vertex of $T$ as $v_r$ and the subtree given by the vertex $f$ such that $O(f)=v_r$ by $C_{v_r}$ with inputs $\lst{e}{n}$, with natural inclusion $j:C_{v_r}\rightarrow T$. We can see that $\alpha$ restricts to $\alpha_r\in\Aut(C_{v_r})$, and thus $\alpha_r^*(j^*\xi)=j^*\xi$, so that $\alpha_r$ must be the identity. It follows that $alpha$ restricts to an automorphism $\alpha_i$ of each of the subtrees $T/e_i$ given by removing the vertex $f$ and its output, and taking the sutbtree where $e_i$ is the root. The restriction of $\xi$ to $T/e_i$ is fixed by $\alpha_i$, and thus by induction, $\alpha_i$ must be the identity for each $i$. It follows that $\alpha$ must be the identity, and thus $\Nrv{}P$ is normal.
+     To see this, note that by assumption $\Aut (C_n)$ acts freely on $\Nrv{}P_{C_n}$ for each $n\geq 0$. Now we will proceed by induction on the size of the trees. Given a tree $T$, $\alpha\in\Aut (T)$ such that $\alpha^*\xi =\xi$ for $\xi\in \Nrv{}P_T$. If we denote the root vertex of $T$ as $v_r$ and the subtree given by the vertex $f$ such that $O(f)=v_r$ by $C_{v_r}$ with inputs $\lst{e}{n}$, with natural inclusion $j:C_{v_r}\rightarrow T$. We can see that $\alpha$ restricts to $\alpha_r\in\Aut(C_{v_r})$, and thus $\alpha_r^*(j^*\xi)=j^*\xi$, so that $\alpha_r$ must be the identity. It follows that $\alpha$ restricts to an automorphism $\alpha_i$ of each of the subtrees $T/e_i$ given by removing the vertex $f$ and its output, and taking the sutbtree where $e_i$ is the root. The restriction of $\xi$ to $T/e_i$ is fixed by $\alpha_i$, and thus by induction, $\alpha_i$ must be the identity for each $i$. It follows that $\alpha$ must be the identity, and thus $\Nrv{}P$ is normal.
 \end{proof}
 
-We will use the following result and not show the proof for it. If interested, the proof can be found in \cite{MWDS} originally or in \cite{HM} proposition 3.29. The proof consist of using Quilln's small object argument to factor every morphism into a normal monomorphism followed by a \emph{trivial fibration}.
+We will use the following result but do not prove it here. If interested, the proof can be found in \cite{MWDS} originally or in \cite{HM} proposition 3.29. The proof consist of using Quillen's small object argument to factor every morphism into a normal monomorphism followed by a \emph{trivial fibration}, cf definition \ref{trivialfibration}. 
+\begin{defn}
+    Every morphism of dendroidal sets can be factored as a normal monomorphism followed by a morphism that has the right lifting property with respect to all normal monomorphisms.
+\end{defn}
 
 \begin{prop}
     \begin{enumerate}[label=(\roman*)]
@@ -1176,12 +1182,82 @@ We will use the following result and not show the proof for it. If interested, t
 \end{tikzcd}\]
     is a pushout square where $f$ is a normal monomorphism, then $f^*$ is a normal monomorphism.
     \item If $u:A \ra B$ is a retract of $v:C\ra D $, then $u$ is a normal monomorphism if $v$ is a normal monomorphism.
-    \item if ${\{f_i:A_i\ra B_i\}}_{i\in I}$ is a famlily of normal monomorphisms, then their coproduct \[\coprod_{i\in I} f_i:\coprod_{i\in I} A_i \ra \coprod_{i\in I} B_i\] is a normal monomorphism.
-    \item If $A_0 \ra A_1 \ra A_2 \ra \dots$ is a sequence with colimit $A_\infty$ for which each $f_i:A_i\ra A_{i+1}$ is a normal monomorphism, then each cone leg morphism $A_i\ra A_\infty$ is a normal monomorphism.
+    \item If ${\{f_i:A_i\ra B_i\}}_{i\in I}$ is a famlily of normal monomorphisms, then their coproduct \[\coprod_{i\in I} f_i:\coprod_{i\in I} A_i \ra \coprod_{i\in I} B_i\] is a normal monomorphism.
+    \item If $A_0 \ra A_1 \ra A_2 \ra \cdots$ is a sequence with colimit $A_\infty$ for which each $f_i:A_i\ra A_{i+1}$ is a normal monomorphism, then each cone leg morphism $A_i\ra A_\infty$ is a normal monomorphism.
     \end{enumerate}
 \end{prop}
 
 The previous proposition allows us to give the following characterixation of normal monomorphism
 \begin{thm}
-    The class of normal monomorphisms is the smallest weakly saturated class containing the boundary inclusions $\partial \Omega[T]\ra \Omega[T]$ for everty tree $T\in\Omega$
+    The class of normal monomorphisms is the smallest weakly saturated class containing the boundary inclusions $\partial \Omega[T]\ra \Omega[T]$ for every tree $T\in\Omega$
 \end{thm}
+
+\begin{defn}\label{trivialfibration}
+    We will call a morphism of dendroidal sets a \emph{trivial fibration} if it has the right lifting property with respect to all normal monomorphisms. That is given a commutative square as below, where $i$ is a normal monomorphism and $p$ is a trivial fibration, there exists a diagonal filler $h$ making the whole diagram commute.
+    % https://q.uiver.app/#q=WzAsNCxbMCwwLCJBIl0sWzIsMCwiQiJdLFswLDIsIkMiXSxbMiwyLCJEIl0sWzAsMV0sWzAsMiwiaSIsMix7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifX19XSxbMiwzXSxbMSwzLCJwIl0sWzIsMSwiaCIsMSx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dXQ==
+\[\begin{tikzcd}[ampersand replacement=\&]
+	A \&\& B \\
+	\\
+	C \&\& D
+	\arrow[from=1-1, to=1-3]
+	\arrow["i"', tail, from=1-1, to=3-1]
+	\arrow["p", from=1-3, to=3-3]
+	\arrow["h"{description}, dashed, from=3-1, to=1-3]
+	\arrow[from=3-1, to=3-3]
+\end{tikzcd}\]
+\end{defn}
+
+Before moving on to the next section, we will show some important examples of normal monomorphisms, which will be used throughout the rest of the thesis. Specifically, we want to undertand how normal monomorphisms interact with the tensor product. We will do this by fixing a (normal) dendroidal set $X$ and tensoring with objects with normal monomorphisms between them. We also want to check if the \emph{pushout-product} of a normal monomorphisms and a monomorphism of simplicial sets is a normal monomorphisms. We will not prove these results here, but they can be found in \cite{HM} proposition 4.21 and forward.
+
+We start with the pushout-product proposition. This will help us later show that dendroidal sets are "enriched" compatibly with the Joyal model structure of simplicial sets.
+\begin{prop}
+    Let $f:M\rightarrow N$ be a monomorphism of simplicial sets, and $g:X\rightarrow Y$ be a normal monomorphism of dendroidal sets. Then the pushout-product 
+    \[
+    i_!M\otimes Y \coprod_{i_!M\otimes X} i_!N \otimes X \rightarrow i_!N\otimes Y
+    \] 
+    is again a normal monomorphism.
+\end{prop}
+
+For the study of the tensor product, we need to define an unbiased way to tensor several objects. 
+\begin{defn}
+    We can define the $n$-fold tensor product of dendroidal sets as a functor
+    \[
+    \otimes_n:\dset^{\times n}\ra \dset
+    \]
+    which is unique up to isomorphism having the requirement that:
+    \begin{enumerate}
+        \item It preserves colimits in each of its $n$ variables separetely.
+        \item $\otimes_n(\flstrep{\Omega}{n}{T})=\Nrv{}(\flst{\Omega}{n}{T})$
+    \end{enumerate}
+\end{defn}
+
+We will write $\otimes_n(\lst{X}{n})=\tenlst{X}{n}$ for general dendroidal sets $\lst{X}{n}$. As mentioned before, the tensor product on dendroidal sets is not associative up to isomorphism, but associator maps, even canonical ones, exist for it. We will denote them, for $0\leq i< j \leq n$ as
+\[
+\alpha_{i,j}:\tenlst{X}{i-1}\otimes(\tenlst[i]{X}{j})\otimes \tenlst[j+1]{X}{n}\ra \tenlst{X}{n}
+\]
+where we may skip the indexing if clear by context. This are natural in each of the $n$ variables.
+
+Now we can talk about the normality properties of this associators. For the following proposition we will conflate the notation of tree $R,S,$ and $T$ with the representable in dendroidal sets.
+
+\begin{prop}
+    Each associator
+    \[
+    \alpha: \tenlst{R}{k}\otimes(\tenlst{S}{l})\otimes \tenlst{T}{m}\ra R_1\otimes \cdots \otimes T_m
+    \]
+    is a normal monomorphism, for trees $\lst{R}{k},$ etc.
+\end{prop}
+
+\begin{cor}
+The associativity map $\alpha$ in the previous proposition is an isomorphism whenever $\lst{R}{k}$ and $\lst{T}{m}$ are all linear trees, i.e. simplices.
+\end{cor}
+
+\begin{cor}
+    Let $\lst{X}{n} $ be normal dendroidal sets. Then each associativity map
+    \[
+    \alpha_{i,j}:\tenlst{X}{i-1}\otimes(\tenlst[i]{X}{j})\otimes \tenlst[j+1]{X}{n}\ra \tenlst{X}{n}
+    \]
+    is a normal monomorphism. It is an isomorphism if $\lst{X}{i-1}$ and $X_{j+1}\otimes\cdots\otimes X_n$ are simplicial sets (viewed as dendroidal sets via the embedding $i_!$)
+\end{cor}
+
+
+
