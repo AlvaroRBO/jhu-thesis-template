@@ -1119,19 +1119,19 @@ Then, we can compute the dendroidal set $\drep{S}\otimes \drep{T}$ by the colimi
     \textbf{ADD EXAMPLE TO SHOW FAILURE OF ASSOCIATIVITY}
 \end{ex}
 
-\section{Normal dendroidal sets and monomorphism}
+\section{Normal dendroidal sets and monomorphisms}
     We will now introduce the notion of normal dendroidal sets, which are the dendroidal sets that are cofibrant in the operadic model structure. We will see that these are precisely the dendroidal sets that can be built up from representables by attaching cells along monomorphisms. We will also see that the tensor product of normal dendroidal sets is again normal, and that the tensor product of monomorphisms is again a monomorphism. We can compare the role of the normal dendroidal sets in the operadic model structure to the role of CW complexes in the homotopy theory of topological spaces.
 
 \begin{defn}
     A dendroidal set $X$ is called \emph{normal} if for every tree $T$, the action of the automorphism group $\Aut (T)$ on the set of $T$-dendrices $X_T$ is free. 
 \end{defn}
-More generally we can define the notion of normal monomorphisms
+More generally we can define the notion of normal monomorphisms:
 \begin{defn}
     Given a monomorphism of dendroidal sets $i:X\rightarrow Y$, we say that $i$ is a \emph{normal} if for every tree $T$, the action of $\Aut (T)$ on the complement of the image, $Y_T-i(X_T)$, is free.
 \end{defn}
 
 \begin{lem}\label{representablesarenormal}
-    Every representable dendroidal sets are normal.
+    Every representable dendroidal set is normal.
 \end{lem} 
     \begin{proof}
     Assume that $f:S\rightarrow T$ is a morphism of trees, and $\alpha\in\Aut (S)$ such that $f\alpha=f$. You can factor $f$ as $\delta\beta\sigma$, where $\sigma$ is a degeneracy, $\beta$ is an isomorphism, and $\delta$ is a face map, as mentioned in Remark \ref{factorfid}. Since $\delta\beta$ is a monomorphism, we must have that $\sigma\alpha=\sigma$. Since $\sigma$ is a degeneracy, $\sigma$ is an epimorphim, which implies that $\alpha$ must be the identity.    
@@ -1176,18 +1176,18 @@ We will use the following result but do not prove it here. If interested, the pr
 	B \&\& D
 	\arrow[from=1-1, to=1-3]
 	\arrow["f"', hook, from=1-1, to=3-1]
-	\arrow["{f^*}", from=1-3, to=3-3]
+	\arrow["{f_*}", from=1-3, to=3-3]
 	\arrow[from=3-1, to=3-3]
 	\arrow["\lrcorner"{anchor=center, pos=0.125, rotate=180}, draw=none, from=3-3, to=1-1]
 \end{tikzcd}\]
-    is a pushout square where $f$ is a normal monomorphism, then $f^*$ is a normal monomorphism.
+    is a pushout square where $f$ is a normal monomorphism, then $f_*$ is a normal monomorphism.
     \item If $u:A \ra B$ is a retract of $v:C\ra D $, then $u$ is a normal monomorphism if $v$ is a normal monomorphism.
     \item If ${\{f_i:A_i\ra B_i\}}_{i\in I}$ is a famlily of normal monomorphisms, then their coproduct \[\coprod_{i\in I} f_i:\coprod_{i\in I} A_i \ra \coprod_{i\in I} B_i\] is a normal monomorphism.
     \item If $A_0 \ra A_1 \ra A_2 \ra \cdots$ is a sequence with colimit $A_\infty$ for which each $f_i:A_i\ra A_{i+1}$ is a normal monomorphism, then each cone leg morphism $A_i\ra A_\infty$ is a normal monomorphism.
     \end{enumerate}
 \end{prop}
 
-The previous proposition allows us to give the following characterixation of normal monomorphism
+The previous proposition allows us to give the following characterixation of normal monomorphisms.
 \begin{thm}
     The class of normal monomorphisms is the smallest weakly saturated class containing the boundary inclusions $\partial \Omega[T]\ra \Omega[T]$ for every tree $T\in\Omega$
 \end{thm}
@@ -1227,7 +1227,7 @@ For the study of the tensor product, we need to define an unbiased way to tensor
     which is unique up to isomorphism having the requirement that:
     \begin{enumerate}
         \item It preserves colimits in each of its $n$ variables separetely.
-        \item $\otimes_n(\flstrep{\Omega}{n}{T})=\Nrv{}(\flst{\Omega}{n}{T})$
+        \item $\otimes_n(\flstrep{T}{n}{\Omega})=\Nrv{}(\flst{T}{n}{\Omega})$
     \end{enumerate}
 \end{defn}
 
@@ -1237,7 +1237,7 @@ We will write $\otimes_n(\lst{X}{n})=\tenlst{X}{n}$ for general dendroidal sets 
 \]
 where we may skip the indexing if clear by context. This are natural in each of the $n$ variables.
 
-Now we can talk about the normality properties of this associators. For the following proposition we will conflate the notation of tree $R,S,$ and $T$ with the representable in dendroidal sets.
+Now we can talk about the normality properties of this associators. For the following proposition and corollary we will conflate the notation of tree $R,S,$ and $T$ with the representable in dendroidal sets.
 
 \begin{prop}
     Each associator

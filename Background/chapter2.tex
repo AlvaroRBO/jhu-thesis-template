@@ -2,9 +2,61 @@
 \label{chap:infc}
 \section{$\infty$-cosmos}
 \label{sec:infct}
-The definition of an infinity-cosmos was introduced by Riehl and Verity over the course of a series of papers. That definition has evolved over time. We start by reviewing the current form of the definition from [RV-elements] first, as it is the simplest definition. But then we also mention a more general older definition, which will be the one that is relevant to the project here.
+The definition of an infinity-cosmos was introduced by Riehl and Verity over the course of a series of papers. That definition has evolved over time. We start by reviewing the current form of the definition from \cite{RV-elements} first, as it is the simplest definition. But then we also mention a more general older definition, which will be the one that is relevant to the project here. For the sake of keeping naming of these definitions clear, I will call the current form as the Stream-lined Strict $\infty$-cosmos, the older more general form as just strict $\infty$-cosmos, and the one with my modification as (weak) $\infty$-cosmos.
 
-But the way that I would actually write it would be out of order: write the definitions first and then figure out what needs to be explained and then write that before the definitions in the paper.
+\begin{defn}[Stream-lined Strict $\infty$-cosmos]
+    A \emph{strict $\infty$-cosmos $\mathcal{K}$} is a category that is enriched over quasi-categories, where given two objects $A, B$, we denote the quasi-category of morphisms as $\cat{Fun(A,B)}$ and refer to it as a \emph{functor space}, that is also equipped with a specified collection of maps that we call \emph{isofibrations} and denote by "$\twoheadrightarrow$" satisfying the following two axioms:
+    \begin{enumerate}
+        \item (completeness) The quasi-categorically enriched category $\mathcal{K}$ possesses a terminal object, small product, pullback of isofibrations, limits of countable towers of isofibrations, and cotensors with simplicial sets, each of these limit notions satisfying a universal property that is enriched over simplicial sets.
+        \item (isofibrations) The isofibrations contain all isomorphism and any map whose codomain is the terminal object; are close under composition, product, pullback, forming inverse limits of towers, and Leibniz cotensors with monomorphism of simplicial sets; and have the property that if $f:A\twoheadrightarrow B$ is an isofibration and $X$ is any object then $\cat{Fun(X,A)}\twoheadrightarrow \cat{Fun(X,B)}$ is an isofibration of quasi-categories.
+    \end{enumerate}
+\end{defn}
 
-Next thing would be to explain how you use a model category enriched over Joyal model structure to get examples. Appendix E
-Section 3.2 is "Examples of oo-cosmoi" which contains an exposition of section E.1 but adapted to the more general setting.
+Implicit in this definition is the fact that we are assuming that we have a model structure working in the background, that works suitable well with the Joyal model structure of quasi-cateogries. Moreover, we are taking only the fibrant objects of this model structure and assuming that they are also cofibrant. The more general form of this definition takes away this assumption. In terms of the difference in the mathematical object, you can prove the same with both definitions, but the proofs may be more stream lined with the additional assumptions (thus the naming convention). 
+
+The more general definition come from the paper \cite{rvp} 
+
+\begin{defn}[Strict $\infty$-Cosmos]
+     A \emph{strict $\infty$-cosmos $\mathcal{K}$} is a simplicially enriched category together with two specified classes of its $0$-arrows $\mathcal{W}$ called its class of \textit{weak equivalences} and $\mathcal{F}$ called its class of \textit{isofibrations} if and only if it satisfies the following axioms:
+     \begin{enumerate}
+        \item (completeness) the category $\mathcal{K}$ possesses a terminal object, cotensors with all finitely presented simplicial sets, and pullbacks of isofibrations along any functor;
+        \item (fibrant objects) all of the functors with codomain the terminal object are isofibrations;
+        \item (pullback stability) the classes of isofibrations and trivial fibration are both stable under pullback along all functor;
+        \item (Leibniz stability) if $p:E\twoheadrightarrow B$ is an isofibration in $\mathcal{K}$ and $i:U\hookrightarrow V$ is an inclusion of finitely presented simplicial sets then the Leibniz cotensor is an isofibration and it is a trivial fibration when $p$ is a trivial fibration in $\mathcal{K}$ or $i$ is trivial cofibration in the Joyal model structure on $\cat{sSet}$; and
+        \item (cofibrant replacement) if $A$ is an arbitrary object of $\mathcal{K}$ then there exist a trivial fibration $r_A:\bar{A}\stackrel{\sim}{\twoheadrightarrow} A$ for which the object $\bar{A}$ is \emph{cofibrant} in the sense that enjoys the left lifting property with respect to all trivial fibrations in $\mathcal{K}$.
+     \end{enumerate}
+     %, equipped with two specified classes of its $0$-arrows $\mathcal{W}$ called its class of \textit{weak equivalences} and $\mathcal{F}$ called its class of \textit{isofibrations}. As usual, we shall assume that $\mathcal{W}$ contains all isomorphisms and satisfies the \textit{$2$-of-$6$ porperty} and that $\mathcal{F}$ also contains all isomorphisms and is closed under composition. We use the notation $\cat{Map(A,B)}$ to denote the hom-space between the objects $A$ and $B$ of $\mathcal{K}$.
+\end{defn}
+
+We can see in this more general form the model structure working in the background. In fact a lot of examples of $\infty$-cosmoi arising in nature come from "quasi-categorically enriched categories of fibrant objects". What this mean is a combination of the following two definitions
+
+\begin{defn}[category of fibrant objects]
+    A \textbf{category of fibrant objects} consist of a category $\mathcal{M}$ together with two subcategories of morphisms $\cat{W}$ and $\cat{F}$ satisfying the following conditions:
+    \begin{enumerate}
+        \item $\mathcal{M}$ has products and in particular a terminal object $\cat{1}$. Moreover, the classes $\cat{F}$ and $\cat{F}\cap\cat{W}$ are each closed under products.
+        \item Every morphism in $\cat{W}$ satisfies the $2$-of-$3$ property: if two out of three morphisms $f$, $g$, and $g\circ f$ are in $\cat{W}$, then so is the third.
+        \item Pullbacks of maps in $\cat{F}$ along any morphism exist and are again in $\cat{F}$, and the class $\cat{F}\cup\cat{W}$ is also stable under pullback.
+        \item Limits of countable towers of maps in $\cat{F}$ exist and are again in $\cat{F}$. Likewise for maps in $\cat{F}\cap\cat{W}$.
+        \item For every object $B$, there exists a \textbf{path object} $PB$ together with a factorization of the diagonal into a map in $\cat{W}$ followed by a map in $\cat{F}$:
+        \[
+        \begin{tikzcd}
+            {} & PB \arrow[dr, two heads] & \\
+            B \arrow[ur, "\sim" {sloped}] \arrow[rr, "\Delta"'] & {} & B \times B
+        \end{tikzcd}
+        \]
+        \item All objects are fibrant: for every $B\in \mathcal{M}$, the map $B \to \cat{1}$ lies in $\cat{F}$.
+    \end{enumerate} 
+\end{defn}
+\begin{defn}[Quasicategorically enriched model structure]
+    Let $\mathcal{V}:=\cat{sSet}$, the cartesian closed model category, using the Joyal model structure. A \textbf{$\mathcal{V}$-model category} is a model category $\mathcal{M}$ that is tensored, cotensored, and $\mathcal{V}$-enriched and so that
+    \begin{enumerate}
+        \item $(\otimes,\{,\},\hom)$ is a Quillen two-variable adjunction and
+        \item the map $Q1\otimes m \rightarrow \cat{1}\otimes m \equiv m$ defined by the cofibrant replacement of the terminal object is a weak equivalence whenever $m$ is cofibrant.
+    \end{enumerate}
+\end{defn}
+
+
+%But the way that I would actually write it would be out of order: write the definitions first and then figure out what needs to be explained and then write that before the definitions in the paper.
+
+%Next thing would be to explain how you use a model category enriched over Joyal model structure to get examples. Appendix E
+%Section 3.2 is "Examples of oo-cosmoi" which contains an exposition of section E.1 but adapted to the more general setting.
