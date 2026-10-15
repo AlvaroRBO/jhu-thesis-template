@@ -2,9 +2,9 @@
 \label{chap:infc}
 \section{$\infty$-cosmos}
 \label{sec:infct}
-The definition of an infinity-cosmos was introduced by Riehl and Verity over the course of a series of papers. That definition has evolved over time. We start by reviewing the current form of the definition from \cite{RV-elements} first, as it is the simplest definition. But then we also mention a more general older definition, which will be the one that is relevant to the project here. For the sake of keeping naming of these definitions clear, I will call the current form as the Stream-lined Strict $\infty$-cosmos, the older more general form as just strict $\infty$-cosmos, and the one with my modification as (weak) $\infty$-cosmos.
+The definition of an infinity-cosmos was introduced by Riehl and Verity over the course of a series of papers. That definition has evolved over time. We start by reviewing the current form of the definition from \cite{RV-elements} first, as it is the simplest definition. But then we also mention a more general older definition, which will be the one that is relevant to the project here. For the sake of keeping naming of these definitions clear, I will call the current form as the $\infty$-cosmos, the older more general form as Non-cofibrant $\infty$-cosmos, and the one with my modification as weak $\infty$-cosmos.
 
-\begin{defn}[Stream-lined Strict $\infty$-cosmos]
+\begin{defn}[ $\infty$-cosmos]
     A \emph{strict $\infty$-cosmos $\mathcal{K}$} is a category that is enriched over quasi-categories, where given two objects $A, B$, we denote the quasi-category of morphisms as $\cat{Fun(A,B)}$ and refer to it as a \emph{functor space}, that is also equipped with a specified collection of maps that we call \emph{isofibrations} and denote by "$\twoheadrightarrow$" satisfying the following two axioms:
     \begin{enumerate}
         \item (completeness) The quasi-categorically enriched category $\mathcal{K}$ possesses a terminal object, small products, pullbacks of isofibrations, limits of countable towers of isofibrations, and cotensors with simplicial sets, each of these limit notions satisfying a universal property that is enriched over simplicial sets.
@@ -14,24 +14,28 @@ The definition of an infinity-cosmos was introduced by Riehl and Verity over the
 
 The axioms are inspired by the properties of the fibrant objects in a model structure that
 \begin{enumerate}
-    \item is enriched over the joyal's model structure on quasicategories and
+    \item is enriched over the Joyal's model structure on quasicategories and
     \item in which all fibrant objects are also cofibrant.
 \end{enumerate}
- The more general form of this definition takes away this second assumption. In terms of the difference in the mathematical object, you can prove the same with both definitions, but the proofs may be more stream lined with the additional assumption (thus the naming convention). 
+ The more general form of this definition takes away this second assumption. In terms of the difference in the mathematical objects, you can prove the same with both definitions, but the proofs may be more stream lined with the additional assumption (thus the naming convention). 
 
 The more general definition come from the paper \cite{rvp} 
 
-\begin{defn}[Strict $\infty$-Cosmos]
-     A \emph{strict $\infty$-cosmos $\mathcal{K}$} is a simplicially enriched category together with two specified classes of its $0$-arrows $\mathcal{W}$ called its class of \textit{weak equivalences} and $\mathcal{F}$ called its class of \textit{isofibrations} that satisfies the following axioms:
+\begin{defn}[Non-Cofibrant $\infty$-Cosmos]
+     A \emph{strict $\infty$-cosmos $\mathcal{K}$} is a simplicially enriched category together with two specified classes of its $0$-arrows $\mathcal{W}$ called its class of \textit{weak equivalences}, $\mathcal{F}$ called its class of \textit{isofibrations} and all maps in $\mathcal{W} \cap \mathcal{F}$ the \textit{trivial fibrations.} These classes satisfythe following axioms:
      \begin{enumerate}
         \item (completeness) the category $\mathcal{K}$ possesses a terminal object, cotensors with all finitely presented simplicial sets, and pullbacks of isofibrations along any morphism;
         \item (fibrant objects) all of the morphisms with codomain the terminal object are isofibrations;
-        \item (pullback stability) the classes of isofibrations and trivial fibration are both stable under pullback along all morphisms;
+        \item (pullback stability) the classes of isofibrations and trivial fibrations are both stable under pullback along all morphisms;
         \item (Leibniz stability) if $p:E\twoheadrightarrow B$ is an isofibration in $\mathcal{K}$ and $i:U\hookrightarrow V$ is an inclusion of finitely presented simplicial sets then the Leibniz cotensor is an isofibration and it is a trivial fibration when $p$ is a trivial fibration in $\mathcal{K}$ or $i$ is trivial cofibration in the Joyal model structure on $\cat{sSet}$; and
         \item (cofibrant replacement) if $A$ is an arbitrary object of $\mathcal{K}$ then there exist a trivial fibration $r_A:\bar{A}\stackrel{\sim}{\twoheadrightarrow} A$ for which the object $\bar{A}$ is \emph{cofibrant} in the sense that enjoys the left lifting property with respect to all trivial fibrations in $\mathcal{K}$.
      \end{enumerate}
      %, equipped with two specified classes of its $0$-arrows $\mathcal{W}$ called its class of \textit{weak equivalences} and $\mathcal{F}$ called its class of \textit{isofibrations}. As usual, we shall assume that $\mathcal{W}$ contains all isomorphisms and satisfies the \textit{$2$-of-$6$ porperty} and that $\mathcal{F}$ also contains all isomorphisms and is closed under composition. We use the notation $\cat{Map(A,B)}$ to denote the hom-space between the objects $A$ and $B$ of $\mathcal{K}$.
 \end{defn}
+\begin{rmk}
+    Every $\bic \ \mathcal{K}$  is a $\pic$ where we the weak equivalense are defined by the following:$f : A \rightarrow B$ is a weak equivalence when the induced map $f_*: \cat{Fun(X,A)}\stackrel{\sim}{\rightarrow} \cat{Fun(X,B)}$ on functor spaces is an equivalence of quasi-categories for all $X\in \mathcal{K}$. See more in \cite{RV-elements} $\S~1.2$
+    
+\end{rmk}
 
 We can see in this more general form the model structure working in the background. In fact a lot of examples of $\infty$-cosmoi arising in nature come from "quasi-categorically enriched categories of fibrant objects". What this mean is a combination of the following two definitions:
 
@@ -63,16 +67,17 @@ We can see in this more general form the model structure working in the backgrou
 Given the fact that the axioms are inspired by the conditions previously written, it is not surprising the fact many naturally occurring $\infty$-cosmoi are realized as quasi-categorically enriched categories of fibrant objects. Then the following theorem found in \cite{RV-elements} provides a concrete realization of this idea.
 
 \begin{thm}
-   Let $\mathcal{M}$ be any model category that is enriched over the Joyal model structure and in which every fibrant object is cofibrant. Then the full subcategory of fibrant objects $\mathcal{M}_f$ inherits the structure of an $\infty$-cosmos in which the isofibrations are the fibrations between fibrant objects, the equivalences are the weak equivalences between fibrant objects, and the trivial fibrations are the trivial fibrations between fibrant objects.
+   Let $\mathcal{M}$ be any model category that is enriched over the Joyal model structure and in which every fibrant object is cofibrant. Then the full subcategory of fibrant objects $\mathcal{M}_f$ inherits the structure of an $\bic$ in which the isofibrations are the fibrations between fibrant objects, the equivalences are the weak equivalences between fibrant objects, and the trivial fibrations are the trivial fibrations between fibrant objects.
 \end{thm}
 
 I will write a sketch of the proof for the slightly more general version of the proposition where we drop the second assumption that every fibrant object is cofibrant.
 
 \begin{prop}
-    Let $\mathcal{M}$ be any model category that is enriched over the Joyal model structure. Then the full subcategory of fibrant objects $\mathcal{M}_f$ inherits the structure of an $\infty$-cosmos in which the isofibrations are the fibrations between fibrant objects, the equivalences are the weak equivalences between fibrant objects, and the trivial fibrations are the trivial fibrations between fibrant objects.
+    Let $\mathcal{M}$ be any model category that is enriched over the Joyal model structure. Then the full subcategory of fibrant objects $\mathcal{M}_f$ inherits the structure of an $\pic$ in which the isofibrations are the fibrations between fibrant objects, the equivalences are the weak equivalences between fibrant objects, and the trivial fibrations are the trivial fibrations between fibrant objects.
 \end{prop}
 
 \begin{proof}
+    
    Most of the axioms come directly from the fact that $\mathcal{M}_f$ is the full category generated by the fibrant objects of $\mathcal{M}$. We get most of the completeness (except for cotensors with simplicial sets), fibrant objects, pullback stability, and cofibrant replacements.
    
    The ones missing are those involving the interaction between $\mathcal{M}_f$ and simplicial sets. For these, we just need to use the fact that $\mathcal{M}$ is enriched over the Joyal model structure, which gives us the quillen two-variable adjunction for the tensoring, and cotensoring with simplicial sets. For the leibniz stability axiom, we use the pushout-product property of quillen adjunctions that says if $i:U\hookrightarrow V$ is a cofibration in $\sset_{Joyal}$ and $p:X\to Y$ is a fibration between fibrant objects in $\mathcal{M}$, then the induced map
