@@ -777,9 +777,10 @@ uniquely determined up to natural isomorphism by the requirement that it preserv
 The category $\dset$, being a presheaf category, is Cartesian closed and therefore has inner hom objects adjoint to the cartesian product. However, these inner homs do not model the correct type of morphisms that we want for the category of dendroidal sets to be a combinatorial model for the homotopy theory of operads. Instead, we need an inner hom object that adjoint to the tensor product we have just defined.
 \begin{defn}
 The inner hom object which is right adjoint to the tensor product is denoted by $\dHom$. This internal hom is characterized by natural isomorphism 
-\[
+\begin{equation}
 \dset(X\otimes Y, Z) \simeq \dset(X,\dHom(Y,Z))
-\]
+\end{equation}
+
 for dendroidal sets $X,Y,Z$.
 \end{defn}
 
@@ -1259,5 +1260,83 @@ The associativity map $\alpha$ in the previous proposition is an isomorphism whe
     is a normal monomorphism. It is an isomorphism if $\lst{X}{i-1}$ and $X_{j+1}\otimes\cdots\otimes X_n$ are simplicial sets (viewed as dendroidal sets via the embedding $i_!$)
 \end{cor}
 
+\section{Model structure on Dendroidal Sets}
+\label{sec:modeldendroidalsets}
+
+With the previous results, we can now define the \emph{operadic model structure} on dendroidal sets. We will not prove the existence of this model structure, but we will give a description of its fibrant objects and its weak equivalences. The proof of the existence of this model structure can be found in \cite{MWDS} or \cite{HM}. This is analogous to the Joyal model structure on simplicial sets.
+
+\begin{defn}
+    Suppose $T$ is a tree and $\partial_xT$ is an elementary face of it. Then we define the \emph{horn} $\Lambda ^x [T]$ to be the subobject of the representable dendroidal set $\Omega[T]$ given by the union of all the elementary faces of $T$ except for $\partial_xT$. If $\partial_x T$ is an inner face of $T$, we call $\Lambda^x[T]$ an \emph{inner horn}, and if $\partial_xT$ is an outer face of $T$, the horn$\Lambda^x[T]$ comes in two flavors: \emph{leaf horns} and \emph{root horns}.
+    Leaf horns are of the following two types:
+    \begin{enumerate}
+        \item a horn $\Lambda^v [T]$ for $T$ a tree with at least two vertices and $v$ a leaf vertex of $T$.
+        \item The unique leaf face of a corolla $C_n$, with $n\geq 0$, is the inclusion of the root, so the correxpoinding leaf horn is the inclusion of all of the leaves of $C_n$
+        \[\coprod\limits_{i=1,\dots,n} \eta \rightarrow \Omega[C_n].\] 
+    \end{enumerate}  
+
+    At the opposite end, root horns are of the following two types:
+    \begin{enumerate}
+        \item a horn $\Lambda^r [T]$ for $T$ a tree with root vertex $r$, where $r$ has precisely one inner edge attached to it,
+        \item The incluion of each leaf (say the $i$-th leaf) of a corolla $C_n$, with $n\geq 0$, defines a root face, thus the root horn is the inclusion of its root and all of its leaves except for the $i$-th leaf.
+        \[\coprod\limits_{i=1,\dots,\hat{k},\dots,n} \eta \rightarrow \Omega[C_n].\] 
+        \end{enumerate}
+\end{defn}
+
+\begin{defn}
+    A morphism of dendroidal sets $f:X\ra Y$ is called an \emph{inner fibration} if it has the right lifting property with respect to all inner horn inclusions.
+\end{defn}
+
+\begin{defn}
+    An inner fibration $f:X\ra Y$ is said to have \emph{$J$-path liftings} if for the map of the end point inclusion of the walking isomorphism, $\Delta [0]\rightarrow\mathbb{I}$ in $\sset$, we get a lifting in the following diagram
+    \[\begin{array}{ccc}
+    \eta &\xrightarrow{x}& X\\
+    \big\downarrow && \big\downarrow p\\
+    i_!J&\xrightarrow{\ \alpha\ }&S
+    \end{array}\]
+\end{defn}
+We can write $\mathcal{J}$ for the set of inner horn inclusions then the operadic model structure on dendroidal sets is the following
+
+\begin{thm}
+    There exists a model structure on the category $\dset$ of dendroidal sets with the following properties:
+    \begin{itemize}
+        \item The cofibrations are the normal monomorphisms.
+        \item The fibrant objects are the dendroidal sets $X$ such that the map $X\rightarrow 1$ is an inner fibration. This dendroical sets are called \emph{$\infty$-operads}.
+        \item The fibrations between fibrant objects are the inner fibrations having $J$-path liftings.
+        \item A map $A \rightarrow B$ between normal dendroidal sets is a weak equivalence if and only if for every $\infty$-operad $X$, the induced map
+        \[\dhom(B,X)\rightarrow\dhom(A,X)\] is a categorical (Joyal) equivalence between simplicial sets defined in \ref{sec:The Tensor Product of Operads}.
+    \end{itemize}
+    Moreover, this model structure is cofibrantly generated and left proper.
+\end{thm}
+
+This model structure agrees with the Joyal model structure on simplicial sets via the embedding $i_!:\sset\ra\dset$. This is due to the following result, which can be found in \cite{HM} proposition 9.28.
 
 
+\begin{prop}
+    For a monomorphism $l: M\rightarrow N$ of simplicial sets and a normal monomorphism $j:A\rightarrow B$ of dendroidal sets, the pushout-product
+    \[i_!N\otimes A\cup i_!M\otimes B\rightarrow i_!N\otimes B\]
+    is a normal monomorphism, which is trivial if either $l$ or $j$ is trivial.
+    Dually, for an inner fibration $p:X\rightarrow Y$ of dendroidal sets, then the induced map
+    \[\dhom(B,X)\rightarrow\dhom(B,Y)\times_{\dhom(A,Y)}\dhom(A,X)\]
+    is a fibration of simplicial sets (in the Joyal model structure), which is trivial if either $j$ or $p$ is trivial.
+\end{prop}
+
+\begin{cor}
+    Given a normal dendroidal set $B$ and an $\infty$-operad $X$, the simplicial set $\dhom(A,X)$ is an $\infty$-category.
+\end{cor}
+\begin{proof}
+    Take the unique maps $T:X\rightarrow *$ and $I:\emptyset \rightarrow B$, where $*$ is the terminal dendroidal set and $\emptyset$ is the initial dendroidal set. This are an inner fibration and a normal monomorphism respectively. Then the induced map
+    \[
+    \begin{array}{l}
+        \dhom(B,X)\rightarrow\dhom(B,Y)\times_{\dhom(A,Y)}\dhom(A,X)\\
+        \dhom(B,X)\rightarrow\dhom(B,*)\times_{\dhom(\emptyset,*)}\dhom(\emptyset,X)\\
+        \dhom(B,X)\rightarrow \Delta [0] \times_{\Delta[0]}\Delta[0]\\
+        \dhom(B,X)\rightarrow \Delta[0]
+    \end{array}
+    \]
+    is a fibration of simplicial sets, thus $\dhom(B,X)$ is an $\infty$-category.
+\end{proof}
+
+\begin{rmk}
+    Due to the previous corollary, we could rewrite the last structure of the operadic model structure as follows: A map $A\rightarrow B$ between normal dendroidal sets is a weak equivalence if and only if for every $\infty$-operad $X$, the induced map
+    \[\dhom(B,X)\rightarrow\dhom(A,X)\] is a categorical equivalence between $\infty$-categories. 
+\end{rmk}

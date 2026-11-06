@@ -2,10 +2,10 @@
 \label{chap:infc}
 \section{$\infty$-cosmos}
 \label{sec:infct}
-The definition of an infinity-cosmos was introduced by Riehl and Verity over the course of a series of papers. That definition has evolved over time. We start by reviewing the current form of the definition from \cite{RV-elements} first, as it is the simplest definition. But then we also mention a more general older definition, which will be the one that is relevant to the project here. For the sake of keeping naming of these definitions clear, I will call the current form as the $\infty$-cosmos, the older more general form as Non-cofibrant $\infty$-cosmos, and the one with my modification as weak $\infty$-cosmos.
+The definition of an infinity-cosmos was introduced by Riehl and Verity over the course of a series of papers. That definition has evolved over time. We start by reviewing the current form of the definition from \cite{RV-elements} first, as it is the simplest definition. But then we also mention a more general older definition, which will be the one that is relevant to the project here. For the sake of keeping naming of these definitions clear, I will call the current form as the $\infty$-cosmos, the older more general form as non-cofibrant $\infty$-cosmos, and the one with my modification as weak $\infty$-cosmos.
 
 \begin{defn}[ $\infty$-cosmos]
-    A \emph{strict $\infty$-cosmos $\mathcal{K}$} is a category that is enriched over quasi-categories, where given two objects $A, B$, we denote the quasi-category of morphisms as $\cat{Fun(A,B)}$ and refer to it as a \emph{functor space}, that is also equipped with a specified collection of maps that we call \emph{isofibrations} and denote by "$\twoheadrightarrow$" satisfying the following two axioms:
+    A \emph{$\infty$-cosmos $\mathcal{K}$} is a category that is enriched over quasi-categories, where given two objects $A, B$, we denote the quasi-category of morphisms as $\cat{Fun(A,B)}$ and refer to it as a \emph{functor space}, that is also equipped with a specified collection of maps that we call \emph{isofibrations} and denote by "$\twoheadrightarrow$" satisfying the following two axioms:
     \begin{enumerate}
         \item (completeness) The quasi-categorically enriched category $\mathcal{K}$ possesses a terminal object, small products, pullbacks of isofibrations, limits of countable towers of isofibrations, and cotensors with simplicial sets, each of these limit notions satisfying a universal property that is enriched over simplicial sets.
         \item (isofibrations) The isofibrations contain all isomorphisms and any map whose codomain is the terminal object; are closed under composition, product, pullback, forming inverse limits of towers, and Leibniz cotensors with monomorphism of simplicial sets; and have the property that if $f:A\twoheadrightarrow B$ is an isofibration and $X$ is any object then $\cat{Fun(X,A)}\twoheadrightarrow \cat{Fun(X,B)}$ is an isofibration of quasi-categories.
@@ -17,12 +17,11 @@ The axioms are inspired by the properties of the fibrant objects in a model stru
     \item is enriched over the Joyal's model structure on quasicategories and
     \item in which all fibrant objects are also cofibrant.
 \end{enumerate}
- The more general form of this definition takes away this second assumption. In terms of the difference in the mathematical objects, you can prove the same with both definitions, but the proofs may be more stream lined with the additional assumption (thus the naming convention). 
-
+ The more general form of this definition takes away this second assumption, thus the naming convention. In terms of the difference in the mathematical objects, you can prove the same with both definitions, but the proofs may be more stream lined with the additional assumption.
 The more general definition come from the paper \cite{rvp} 
 
 \begin{defn}[Non-Cofibrant $\infty$-Cosmos]
-     A \emph{strict $\infty$-cosmos $\mathcal{K}$} is a simplicially enriched category together with two specified classes of its $0$-arrows $\mathcal{W}$ called its class of \textit{weak equivalences}, $\mathcal{F}$ called its class of \textit{isofibrations} and all maps in $\mathcal{W} \cap \mathcal{F}$ the \textit{trivial fibrations.} These classes satisfythe following axioms:
+     A \emph{non-cofibrant $\infty$-cosmos $\mathcal{K}$} is a simplicially enriched category together with two specified classes of its $0$-arrows $\mathcal{W}$ called its class of \textit{weak equivalences}, $\mathcal{F}$ called its class of \textit{isofibrations} and all maps in $\mathcal{W} \cap \mathcal{F}$ the \textit{trivial fibrations.} These classes satisfy the following axioms:
      \begin{enumerate}
         \item (completeness) the category $\mathcal{K}$ possesses a terminal object, cotensors with all finitely presented simplicial sets, and pullbacks of isofibrations along any morphism;
         \item (fibrant objects) all of the morphisms with codomain the terminal object are isofibrations;
@@ -33,7 +32,7 @@ The more general definition come from the paper \cite{rvp}
      %, equipped with two specified classes of its $0$-arrows $\mathcal{W}$ called its class of \textit{weak equivalences} and $\mathcal{F}$ called its class of \textit{isofibrations}. As usual, we shall assume that $\mathcal{W}$ contains all isomorphisms and satisfies the \textit{$2$-of-$6$ porperty} and that $\mathcal{F}$ also contains all isomorphisms and is closed under composition. We use the notation $\cat{Map(A,B)}$ to denote the hom-space between the objects $A$ and $B$ of $\mathcal{K}$.
 \end{defn}
 \begin{rmk}\label{remarkabout}
-    Every $\bic \ \mathcal{K}$ is a $\pic$ where the weak equivalences are defined by the following:$f : A \rightarrow B$ is a weak equivalence when the induced map $f_*: \cat{Fun(X,A)}\stackrel{\sim}{\rightarrow} \cat{Fun(X,B)}$ on functor spaces is an equivalence of quasi-categories for all $X\in \mathcal{K}$. See more in \cite{RV-elements} $\S~1.2$
+    Every $\bic \ \mathcal{K}$ is a $\pic$ where the weak equivalences are defined by the following: $f : A \rightarrow B$ is a weak equivalence when the induced map $f_*: \cat{Fun(X,A)}\stackrel{\sim}{\rightarrow} \cat{Fun(X,B)}$ on functor spaces is an equivalence of quasi-categories for all $X\in \mathcal{K}$. See more in \cite{RV-elements} $\S~1.2$
     
 \end{rmk}
 
@@ -79,8 +78,8 @@ I will write a sketch of the proof for the slightly more general version of the 
 \begin{proof}
     Let $\mathcal{M}$ be a model category enriched over the Joyal model structure. That means that is enriched, tensored, and cotensored over $\sset_{Joyal}$. Let $\mathcal{M}_f\subseteq \mathcal{M}$ be the full simplicially enriched subcategory spanned by the fibrant objects.
     Define:
-    \[\mathcal{W}_{\mathcal{M}_f}=\left\{f:X\rightarrow Y \| X,Y \in \mathcal{M}_f, f \text{ is a weak equivalence in }\mathcal{M}\right\}\]
-    \[\mathcal{F}_{\mathcal{M}_f}=\left\{p:E\rightarrow B \| E,B \in \mathcal{M}_f, p \text{ is a fibration in }\mathcal{M}\right\}\]
+    \[\mathcal{W}_{\mathcal{M}_f}=\left\{f:X\rightarrow Y \mid X,Y \in \mathcal{M}_f, f \text{ is a weak equivalence in }\mathcal{M}\right\}\]
+    \[\mathcal{F}_{\mathcal{M}_f}=\left\{p:E\rightarrow B \mid E,B \in \mathcal{M}_f, p \text{ is a fibration in }\mathcal{M}\right\}\]
     
     We verify the axioms for $\pic$. We get most of the completeness (except for cotensors with simplicial sets), fibrant objects, pullback stability, and cofibrant replacements given by the fact that $\mathcal{M}_f$ is the full category generated by the fibrant objects of $\mathcal{M}$. 
    
@@ -103,7 +102,7 @@ I will write a sketch of the proof for the slightly more general version of the 
 \end{proof}
 
 \begin{rmk}
-We now note the key structural differences between $\bic$ and $pic$. In the $\bic$ definition, the assumption of cofibrancy ensures that the functor spaces $\cat{Fun(A,B)}$ are quasi-categories, giving an enrichment over the subcategories of $\qcat$. When the cofibrant assumption is dropped for $\pic$, we no longer can guarantee this on the nose. To compensate for this loss property we must require some more structure on the definition of $\bic$. This comes from the fact that we require to define the family of weak equivalences as additional data instead of being given by the functor space (see remark \ref{remarkabout}) and the axiom of cofibrant replacement.
+We now note the key structural differences between $\bic$ and $\pic$. In the $\bic$ definition, the assumption of cofibrancy ensures that the functor spaces $\cat{Fun(A,B)}$ are quasi-categories, giving an enrichment over the subcategories of $\qcat$. When the cofibrant assumption is dropped for $\pic$, we no longer can guarantee this on the nose. To compensate for this lost property we must require some more structure on the definition of $\bic$. This comes from the fact that we require to define the family of weak equivalences as additional data instead of being given by the functor space (see remark \ref{remarkabout}) and the axiom of cofibrant replacement.
 \end{rmk}
 
 %But the way that I would actually write it would be out of order: write the definitions first and then figure out what needs to be explained and then write that before the definitions in the paper.
