@@ -1290,11 +1290,11 @@ With the previous results, we can now define the \emph{operadic model structure}
     An inner fibration $f:X\ra Y$ is said to have \emph{$J$-path liftings} if for the map of the end point inclusion of the walking isomorphism, $\Delta [0]\rightarrow\mathbb{I}$ in $\sset$, we get a lifting in the following diagram
     \[\begin{array}{ccc}
     \eta &\xrightarrow{x}& X\\
-    \big\downarrow && \big\downarrow p\\
-    i_!J&\xrightarrow{\ \alpha\ }&S
+    \big\downarrow && \big\downarrow f\\
+    i_!\mathbb{I}&\xrightarrow{\ \alpha \ }&Y
     \end{array}\]
 \end{defn}
-We can write $\mathcal{J}$ for the set of inner horn inclusions then the operadic model structure on dendroidal sets is the following
+The operadic model structure on dendroidal sets is the following
 
 \begin{thm}
     There exists a model structure on the category $\dset$ of dendroidal sets with the following properties:
@@ -1308,10 +1308,10 @@ We can write $\mathcal{J}$ for the set of inner horn inclusions then the operadi
     Moreover, this model structure is cofibrantly generated and left proper.
 \end{thm}
 
-This model structure agrees with the Joyal model structure on simplicial sets via the embedding $i_!:\sset\ra\dset$. This is due to the following result, which can be found in \cite{HM} proposition 9.28.
+The operadic model structure is compatible with the Joyal model structure on simplicial sets via the embedding $i_!:\sset\ra\dset$. This is due to the following result, which can be found in \cite{HM} proposition 9.28.
 
 
-\begin{prop}
+\begin{prop}\label{pushoutprod}
     For a monomorphism $l: M\rightarrow N$ of simplicial sets and a normal monomorphism $j:A\rightarrow B$ of dendroidal sets, the pushout-product
     \[i_!N\otimes A\cup i_!M\otimes B\rightarrow i_!N\otimes B\]
     is a normal monomorphism, which is trivial if either $l$ or $j$ is trivial.
@@ -1321,7 +1321,7 @@ This model structure agrees with the Joyal model structure on simplicial sets vi
 \end{prop}
 
 \begin{cor}
-    Given a normal dendroidal set $B$ and an $\infty$-operad $X$, the simplicial set $\dhom(A,X)$ is an $\infty$-category.
+    Given a normal dendroidal set $B$ and an $\infty$-operad $X$, the simplicial set $\dhom(B,X)$ is an $\infty$-category.
 \end{cor}
 \begin{proof}
     Take the unique maps $T:X\rightarrow *$ and $I:\emptyset \rightarrow B$, where $*$ is the terminal dendroidal set and $\emptyset$ is the initial dendroidal set. This are an inner fibration and a normal monomorphism respectively. Then the induced map
@@ -1340,3 +1340,5 @@ This model structure agrees with the Joyal model structure on simplicial sets vi
     Due to the previous corollary, we could rewrite the last structure of the operadic model structure as follows: A map $A\rightarrow B$ between normal dendroidal sets is a weak equivalence if and only if for every $\infty$-operad $X$, the induced map
     \[\dhom(B,X)\rightarrow\dhom(A,X)\] is a categorical equivalence between $\infty$-categories. 
 \end{rmk}
+
+Despite \ref{pushoutprod}, the operadic model structure is not enriched over the Joyal model structure in the sense of \cite{Hovey} definition 4.2.18. We will say more about this in the next chapter.

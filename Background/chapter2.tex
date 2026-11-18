@@ -65,7 +65,7 @@ We can see in this more general form the model structure working in the backgrou
 
 Given the fact that the axioms are inspired by the conditions previously written, it is not surprising the fact many naturally occurring $\infty$-cosmoi are realized as quasi-categorically enriched categories of fibrant objects. Then the following theorem found in \cite{RV-elements} provides a concrete realization of this idea.
 
-\begin{thm}
+\begin{thm} \label{fibrantonenrinchment}
    Let $\mathcal{M}$ be any model category that is enriched over the Joyal model structure and in which every fibrant object is cofibrant. Then the full subcategory of fibrant objects $\mathcal{M}_f$ inherits the structure of an $\bic$ in which the isofibrations are the fibrations between fibrant objects, the equivalences are the weak equivalences between fibrant objects, and the trivial fibrations are the trivial fibrations between fibrant objects.
 \end{thm}
 
@@ -109,3 +109,29 @@ We now note the key structural differences between $\bic$ and $\pic$. In the $\b
 
 %Next thing would be to explain how you use a model category enriched over Joyal model structure to get examples. Appendix E
 %Section 3.2 is "Examples of oo-cosmoi" which contains an exposition of section E.1 but adapted to the more general setting.
+
+\section{$\infty$-cosmoi found in nature}\label{nature}
+
+Now we will give some examples of both $\bic$ and $\pic$ that are found in the literature.Most examples will be given by showing that they are full subcategories of fibrant objects of a model category enriched over the Joyal model structure. We will start with the example of quasi-categories, which is the prototype of $\bic$:
+
+\begin{ex}
+The full subcategory $\mathcal{QC}\cat{at}\subset \sset$ of quasi-categories defines an $\bic$ in which the isofibrations, equivalences, and trivial fibrations coincide with the classes already bearing these names.
+\end{ex}
+\begin{proof}
+The cartesian closed structure on $\sset$ provides its self-enrichment, tensors, and cotensors:
+\[
+    \underline{\operatorname{hom}}(A,B)=B^A,
+    \qquad U\otimes A=U\times A,
+    \qquad \{U,A\}=A^U,
+\]
+where
+\[
+    (B^A)_n=\operatorname{Hom}_{\sset}(A\times\Delta^n,B).
+\]
+Since the Joyal model structure is cartesian, the product and its internal-hom right adjoints form a two-variable Quillen adjunction. Hence this enrichment is compatible
+with the Joyal model structure.
+
+Thus the full subcategory of fibrant objects $\mathcal{QC}\cat{at}$ inherits the structure of an $\bic$, by theorem \ref{fibrantonenrinchment}, in which the isofibrations, equivalences, and trivial fibrations coincide with the classes already bearing these names.
+    
+\end{proof}
+
